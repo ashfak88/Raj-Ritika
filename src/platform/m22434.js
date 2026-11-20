@@ -16,22 +16,33 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   h = '/images/ayswarya-akhil',
   p = {
     envelope: `${h}/envelope.webp`,
-    cross: `${h}/cross.webp`,
+    cross: `${h}/floral.webp`,
     foil: `${h}/foil.webp`,
     floral: `${h}/floral.webp`,
-    church: `${h}/church.webp`,
-    landscape: `${h}/landscape.webp`,
+    church: `${h}/floral.webp`,
+    landscape: `${h}/floral.webp`,
+    ganapati: '/images/ganapati.png',
+    ganapatiColor: '/images/ganapati_color.png',
   },
   f = '2026-12-30T21:30:00+05:30',
   m = Date.parse(f),
-  g = {
-    title: 'Wedding Reception — Ritika & Raj',
-    start: new Date(f),
-    end: new Date('2026-12-30T23:59:00+05:30'),
-    location: 'Utsav Lawns, Press Bazar, Ulhasnagar 421003',
-    details: 'Wedding Reception (Reception Cum Dinner) of Ritika Karira & Raj Chandwani.',
-    uid: `${d}-main@zetron.tech`,
+  gSangeet = {
+    title: 'Sangeet Night — Ritika & Raj',
+    start: new Date('2026-12-28T20:00:00+05:30'),
+    end: new Date('2026-12-28T23:30:00+05:30'),
+    location: '1st Floor, Town Hall, Ulhasnagar - 421003',
+    details: 'Sangeet Night celebration for Ritika & Raj.',
+    uid: `${d}-sangeet@zetron.tech`,
   },
+  gReception = {
+    title: 'Reception Cum Dinner — Ritika & Raj',
+    start: new Date('2026-12-30T21:30:00+05:30'),
+    end: new Date('2026-12-30T23:59:00+05:30'),
+    location: 'Utsav Lawns, Ulhasnagar - 421003',
+    details: 'Wedding Reception Cum Dinner for Ritika & Raj.',
+    uid: `${d}-reception@zetron.tech`,
+  },
+  g = gReception,
   u = '#4a3a2e',
   y = '#6b5646',
   x = '#7d5f2e',
@@ -315,11 +326,13 @@ function B({
       fontWeight: s,
       fontSize: w(e),
       letterSpacing: `${t}em`,
-      paddingLeft: `${t}em`,
       textTransform: 'uppercase',
       color: i,
       margin: 0,
       lineHeight: 1.55,
+      textAlign: 'center',
+      maxWidth: '100%',
+      boxSizing: 'border-box',
       ...o,
     },
     children: a,
@@ -336,6 +349,8 @@ function H({
   caps: l = !0,
   style: c,
 }) {
+  let charIdx = 0
+  let words = String(a).split(' ')
   return (0, n.jsx)('p', {
     'aria-label': a,
     style: {
@@ -343,31 +358,56 @@ function H({
       fontWeight: o,
       fontSize: w(e),
       letterSpacing: `${r}em`,
-      paddingLeft: `${r}em`,
       color: s,
       margin: 0,
-      lineHeight: 1.2,
+      lineHeight: 1.25,
       textTransform: l ? 'uppercase' : 'none',
-      whiteSpace: 'nowrap',
+      textAlign: 'center',
+      maxWidth: '100%',
+      boxSizing: 'border-box',
       perspective: 500,
       ...c,
     },
-    children: Array.from(a).map((a, e) =>
-      (0, n.jsx)(
-        'span',
-        {
-          'aria-hidden': !0,
-          className: 'aa-ch',
-          style: {
-            ...$(t + e * i),
-            display: 'inline-block',
-            ...('&' === a ? { fontStyle: 'italic', fontWeight: 400, color: b } : null),
+    children: words.map((word, wIdx) => {
+      let wordChars = Array.from(word).map((char) => {
+        let curIdx = charIdx++
+        return (0, n.jsx)(
+          'span',
+          {
+            'aria-hidden': !0,
+            className: 'aa-ch',
+            style: {
+              ...$(t + curIdx * i),
+              display: 'inline-block',
+              ...('&' === char ? { fontStyle: 'italic', fontWeight: 400, color: b } : null),
+            },
+            children: char,
           },
-          children: ' ' === a ? ' ' : a,
+          curIdx,
+        )
+      })
+      charIdx++
+      return (0, n.jsxs)(
+        n.Fragment,
+        {
+          children: [
+            (0, n.jsx)(
+              'span',
+              {
+                style: {
+                  display: 'inline-block',
+                  whiteSpace: 'nowrap',
+                },
+                children: wordChars,
+              },
+              `w-${wIdx}`,
+            ),
+            wIdx < words.length - 1 ? ' ' : null,
+          ],
         },
-        e,
-      ),
-    ),
+        wIdx,
+      )
+    }),
   })
 }
 function Y({ text: a, size: e = 4.6, delay: t = 0, step: i = 0.12, color: r = y, style: s }) {
@@ -592,31 +632,30 @@ function J({ top: a, bottom: e, w: t = 84, wash: i, start: r, children: s }) {
     style: {
       top: `${a}%`,
       bottom: `${e}%`,
-      width: `min(${t}%, calc(100vw - 36px))`,
+      width: `min(${t}%, calc(100vw - 32px))`,
+      maxWidth: 'calc(100vw - 32px)',
+      boxSizing: 'border-box',
       justifyContent: r ? 'flex-start' : 'center',
+      alignItems: 'center',
+      textAlign: 'center',
     },
     children: s,
   })
 }
 function Q() {
-  let a = `url('${h}/cross-mask.png')`
   return (0, n.jsxs)(n.Fragment, {
     children: [
       (0, n.jsx)('div', {
         className: 'aa-halo',
-        style: { left: '32%', top: '1%', width: '36%', height: '23%' },
+        style: { left: '20%', top: '0%', width: '60%', height: '24%', background: 'radial-gradient(closest-side, rgba(255, 225, 140, 0.75), rgba(255, 225, 140, 0))' },
       }),
-      (0, n.jsx)('div', {
-        className: 'aa-glint',
-        style: {
-          left: '42.45%',
-          top: '3.95%',
-          width: '15%',
-          height: '16.03%',
-          WebkitMaskImage: a,
-          maskImage: a,
-        },
-      }),
+      [
+        [50, 4, 0],
+        [42, 7, 1.2],
+        [58, 7, 0.6],
+        [34, 11, 1.8],
+        [66, 11, 2.4],
+      ].map(([a, e, t], i) => (0, n.jsx)(K, { x: a, y: e, delay: t }, i)),
     ],
   })
 }
@@ -921,8 +960,8 @@ function ai({ onBegin: a, onDone: e }) {
                 }),
                 (0, n.jsx)('p', {
                   className: 'aa-cin',
-                  style: { ...$(1.55), ...d(2.9, 0.34, y) },
-                  children: '30 December 2026',
+                  style: { ...$(1.55), ...d(3.2, 0.34, y) },
+                  children: '28 & 30 December 2026',
                 }),
                 (0, n.jsx)('div', {
                   className: 'aa-tap',
@@ -960,8 +999,8 @@ function ai({ onBegin: a, onDone: e }) {
                       children: [
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
-                          style: { ...$(0.8), ...d(3.1, 0.5, u) },
-                          children: 'Wedding',
+                          style: { ...$(0.8), ...d(3.2, 0.44, u) },
+                          children: 'Wedding & Reception',
                         }),
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
@@ -1243,7 +1282,7 @@ function as({ onReveal: a }) {
     role: 'button',
     tabIndex: 0,
     'aria-label': o
-      ? 'Monday, 30 December 2026 at 09:30 PM'
+      ? 'Wednesday, 30 December 2026 at 09:30 PM'
       : 'Scratch the gold to reveal the date — or press Enter',
     onKeyDown: (a) => {
       o || ('Enter' !== a.key && ' ' !== a.key) || (a.preventDefault(), m())
@@ -1267,7 +1306,7 @@ function as({ onReveal: a }) {
           }),
           (0, n.jsx)('p', { style: S(3.7, 0.5, u), children: '2026' }),
           (0, n.jsx)(G, { w: 11, gap: 1.8, animate: !1 }),
-          (0, n.jsx)('p', { style: S(3, 0.42, y), children: 'Monday' }),
+          (0, n.jsx)('p', { style: S(3.2, 0.42, y), children: 'Wednesday' }),
           (0, n.jsx)('p', {
             style: {
               fontFamily: j,
@@ -1467,7 +1506,7 @@ function ad() {
       if (null === t) return void p('Please let us know if you can attend.')
       ;(p(''), c('sending'))
       try {
-        let msg = `Hello! This is ${a.trim()}. ${t ? `I will be attending (${r} ${1 === r ? 'guest' : 'guests'}).` : 'Sorry, I will not be able to attend.'} - Ritika & Raj's Wedding Reception`
+        let msg = `Hello! This is ${a.trim()}. ${t ? `I will be attending (${r} ${1 === r ? 'guest' : 'guests'}).` : 'Sorry, I will not be able to attend.'} - Ritika & Raj's Wedding & Reception`
         ;(window.open(`https://wa.me/${RSVP_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'), c('done'))
       } catch {
         ;(p('Network error — please check your connection and try again.'), c('idle'))
@@ -1923,7 +1962,7 @@ export default function () {
     }, []),
     d = (0, s.useCallback)(() => e(!0), [])
   return (0, n.jsx)(o.default, {
-    src: '/audio/Thousand_years_instrument.mp3',
+    src: '/audio/aaj_sajeya.mp3',
     children: (0, n.jsxs)('div', {
       className: 'aa-root',
       children: [
@@ -1935,51 +1974,120 @@ export default function () {
           children: [
             (0, n.jsx)(q, {
               id: 'aa-reveal',
-              art: p.cross,
+              art: p.floral,
               overlays: (0, n.jsx)(Q, {}),
-              label: 'The invitation',
+              label: 'The Sacred Announcement',
               eager: !0,
               children: (0, n.jsxs)(J, {
-                top: 24,
-                bottom: 22.5,
+                top: 7,
+                bottom: 7,
+                wash: !0,
                 children: [
-                  (0, n.jsx)(Y, { text: '“Where you go, I will go;', delay: 0.2 }),
-                  (0, n.jsx)(Y, { text: 'where you lodge, I will lodge.”', delay: 0.9 }),
-                  (0, n.jsx)(B, {
-                    size: 2.6,
-                    track: 0.34,
-                    color: x,
-                    delay: 1.6,
-                    style: { marginTop: w(1.4) },
-                    children: 'Two Hearts · One Journey',
+                  (0, n.jsx)('img', {
+                    src: p.ganapati,
+                    alt: 'Lord Ganesha',
+                    style: {
+                      width: w(14.5),
+                      height: 'auto',
+                      display: 'block',
+                      margin: `0 auto ${w(1)}`,
+                      filter: 'drop-shadow(0 2px 8px rgba(180,130,50,.35))',
+                    },
                   }),
-                  (0, n.jsx)(G, { w: 18, delay: 1.9, gap: 3.4 }),
                   (0, n.jsx)(B, {
-                    size: 2.7,
-                    track: 0.32,
-                    delay: 2.2,
-                    children: 'Together with their family',
+                    size: 3.2,
+                    track: 0.2,
+                    color: '#8b1e2a',
+                    delay: 0.2,
+                    weight: 600,
+                    children: '|| Om Shree Ganeshaya Namah ||',
                   }),
-                  (0, n.jsx)('div', { style: { height: w(3) } }),
-                  (0, n.jsx)(H, { text: 'Ritika Karira', size: 7.2, delay: 2.5 }),
-                  (0, n.jsx)(X, { size: 9, delay: 3.2, style: { margin: `${w(0.2)} 0` }, children: 'and' }),
-                  (0, n.jsx)(H, { text: 'Raj Chandwani', size: 7.2, delay: 3.6 }),
-                  (0, n.jsx)('div', { style: { height: w(3.4) } }),
-                  (0, n.jsxs)(B, {
-                    size: 2.6,
-                    track: 0.28,
+                  (0, n.jsx)(B, {
+                    size: 3.0,
+                    track: 0.16,
+                    color: '#8b1e2a',
+                    delay: 0.4,
+                    weight: 600,
+                    style: { marginTop: w(0.4) },
+                    children: '|| Jai Jhulelal ||  || Jai Vasan Ghot ||',
+                  }),
+                  (0, n.jsx)(G, { w: 16, delay: 0.6, gap: 2.2 }),
+                  (0, n.jsx)(O, {
+                    size: 3.8,
+                    delay: 0.8,
                     color: y,
-                    delay: 4.2,
-                    style: { lineHeight: 1.95 },
-                    children: ['Request the pleasure of', (0, n.jsx)('br', {}), 'your company at their'],
+                    children: 'With the Divine Blessings of',
                   }),
                   (0, n.jsx)(B, {
-                    size: 3.4,
-                    track: 0.46,
+                    size: 3.3,
+                    track: 0.12,
+                    color: u,
+                    delay: 1.0,
+                    weight: 600,
+                    style: { margin: `${w(0.5)} 0` },
+                    children: 'Late Smt. Kaushalyabai & Shri Bilandmal Karira',
+                  }),
+                  (0, n.jsx)(B, {
+                    size: 3.3,
+                    track: 0.12,
+                    color: u,
+                    delay: 1.2,
+                    weight: 600,
+                    children: 'Late Shri Prakash B. Karira',
+                  }),
+                  (0, n.jsx)(G, { w: 12, delay: 1.4, gap: 2.2 }),
+                  (0, n.jsx)(O, {
+                    size: 3.8,
+                    delay: 1.6,
+                    color: y,
+                    children: 'We joyfully announce the beautiful beginning of',
+                  }),
+                  (0, n.jsx)(X, {
+                    size: 13,
+                    delay: 1.9,
+                    color: '#8b1e2a',
+                    style: { margin: `${w(0.8)} 0 ${w(0.2)}` },
+                    children: 'Ritika',
+                  }),
+                  (0, n.jsx)(O, {
+                    size: 3.6,
+                    delay: 2.1,
+                    color: y,
+                    children: '( D/o Smt. Kavita & Shri Shyamlal Karira )',
+                  }),
+                  (0, n.jsx)('div', {
+                    className: 'aa-r',
+                    style: { ...$(2.3), fontSize: w(5), color: b, margin: `${w(0.6)} 0` },
+                    children: '♡',
+                  }),
+                  (0, n.jsx)(X, {
+                    size: 13,
+                    delay: 2.5,
+                    color: '#8b1e2a',
+                    style: { margin: `${w(0.2)} 0 ${w(0.2)}` },
+                    children: 'Raj',
+                  }),
+                  (0, n.jsx)(O, {
+                    size: 3.6,
+                    delay: 2.7,
+                    color: y,
+                    children: '( S/o Smt. Seema & Shri Ram Chandwani )',
+                  }),
+                  (0, n.jsx)(O, {
+                    size: 3.8,
+                    delay: 3.0,
+                    color: y,
+                    style: { marginTop: w(1.2) },
+                    children: 'Cordially invite you to join us for the',
+                  }),
+                  (0, n.jsx)(B, {
+                    size: 3.8,
+                    track: 0.42,
                     color: x,
-                    delay: 4.5,
-                    style: { marginTop: w(0.8) },
-                    children: 'Reception Cum Dinner',
+                    delay: 3.3,
+                    weight: 600,
+                    style: { marginTop: w(0.6) },
+                    children: 'Wedding & Reception',
                   }),
                 ],
               }),
@@ -1987,32 +2095,32 @@ export default function () {
             (0, n.jsx)(q, {
               id: 'aa-couple',
               art: p.floral,
-              label: 'Ritika & Raj',
+              label: 'Meet the Couple',
               children: (0, n.jsxs)(J, {
-                top: 8,
-                bottom: 8,
+                top: 6,
+                bottom: 6,
                 wash: !0,
                 children: [
-                  (0, n.jsx)(B, { size: 2.8, track: 0.44, color: x, delay: 0.1, children: 'Together Forever' }),
+                  (0, n.jsx)(B, { size: 3.4, track: 0.46, color: x, delay: 0.1, children: 'Meet the Couple' }),
                   (0, n.jsx)(G, { w: 14, delay: 0.35, gap: 2.2 }),
                   (0, n.jsx)('div', {
                     className: 'aa-p',
                     style: {
                       ...$(0.6),
-                      width: w(52),
-                      height: w(72),
+                      width: 'min(86vw, calc(var(--u) * 72))',
+                      height: 'min(58vh, calc(var(--u) * 92))',
                       margin: `${w(2)} auto`,
                       position: 'relative',
-                      borderRadius: `${w(26)} ${w(26)} ${w(3.2)} ${w(3.2)}`,
-                      padding: w(1.2),
-                      background: 'linear-gradient(135deg, #c9a567, #f3dfaa 50%, #8f6d38)',
-                      boxShadow: '0 14px 34px rgba(90,64,40,.24), 0 2px 8px rgba(90,64,40,.12)',
+                      borderRadius: `${w(36)} ${w(36)} ${w(4)} ${w(4)}`,
+                      padding: w(1.3),
+                      background: 'linear-gradient(135deg, #c9a567 0%, #f7e6b8 35%, #b58d4f 70%, #8a6430 100%)',
+                      boxShadow: '0 16px 42px rgba(90,64,40,.28), 0 2px 10px rgba(90,64,40,.15)',
                     },
                     children: (0, n.jsx)('div', {
                       style: {
                         width: '100%',
                         height: '100%',
-                        borderRadius: `${w(25)} ${w(25)} ${w(2.4)} ${w(2.4)}`,
+                        borderRadius: `${w(35)} ${w(35)} ${w(3)} ${w(3)}`,
                         overflow: 'hidden',
                         position: 'relative',
                       },
@@ -2023,19 +2131,119 @@ export default function () {
                           width: '100%',
                           height: '100%',
                           objectFit: 'cover',
-                          objectPosition: 'center 20%',
+                          objectPosition: 'center 15%',
                           display: 'block',
                         },
                       }),
                     }),
                   }),
-                  (0, n.jsx)(X, { size: 8.8, delay: 1, style: { marginTop: w(1.8) }, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(X, { size: 10.5, delay: 0.9, style: { marginTop: w(1.6) }, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(O, {
+                    size: 4.6,
+                    delay: 1.2,
+                    color: u,
+                    style: { marginTop: w(0.6) },
+                    children: 'Two hearts, one soul, together forever.',
+                  }),
+                ],
+              }),
+            }),
+            (0, n.jsx)(q, {
+              id: 'aa-sangeet',
+              art: p.floral,
+              label: 'Sangeet Night',
+              children: (0, n.jsxs)(J, {
+                top: 7,
+                bottom: 7,
+                wash: !0,
+                children: [
+                  (0, n.jsx)(B, { size: 2.8, track: 0.36, color: x, delay: 0.1, children: 'Join Us For' }),
+                  (0, n.jsx)(G, { w: 12, delay: 0.3, gap: 1.8 }),
+                  (0, n.jsx)(H, {
+                    text: 'SANGEET NIGHT',
+                    size: 5.4,
+                    track: 0.1,
+                    delay: 0.5,
+                    color: '#8b1e2a',
+                    weight: 600,
+                  }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.7, gap: 1.8 }),
+                  (0, n.jsx)(B, {
+                    size: 3.5,
+                    track: 0.18,
+                    color: u,
+                    delay: 0.9,
+                    weight: 600,
+                    style: { marginTop: w(0.8) },
+                    children: 'MON · 28TH DEC 2026',
+                  }),
                   (0, n.jsx)(O, {
                     size: 4.2,
-                    delay: 1.3,
+                    delay: 1.2,
+                    color: x,
+                    style: { marginTop: w(0.4) },
+                    children: 'From 8:00 PM Onwards',
+                  }),
+                  (0, n.jsx)(G, { w: 10, delay: 1.4, gap: 1.8 }),
+                  (0, n.jsx)(B, {
+                    size: 2.6,
+                    track: 0.3,
+                    color: y,
+                    delay: 1.6,
+                    children: 'Venue',
+                  }),
+                  (0, n.jsx)(H, { text: 'Town Hall', size: 5.8, delay: 1.8, color: u }),
+                  (0, n.jsx)(O, {
+                    size: 3.8,
+                    delay: 2.0,
                     color: u,
-                    style: { marginTop: w(0.8) },
-                    children: 'Two hearts, one love, together forever.',
+                    style: { marginTop: w(0.4), maxWidth: w(64) },
+                    children: '1st Floor, Town Hall, Ulhasnagar – 421003',
+                  }),
+                  (0, n.jsxs)('div', {
+                    style: {
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      gap: w(1.8),
+                      flexWrap: 'wrap',
+                      marginTop: w(2.4),
+                    },
+                    children: [
+                      (0, n.jsxs)('a', {
+                        href: 'https://www.google.com/maps/search/?api=1&query=Town+Hall+Ulhasnagar+421003',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        className: 'aa-pill aa-r',
+                        style: {
+                          ...$(2.2),
+                          fontSize: w(2.3),
+                          letterSpacing: '.16em',
+                          padding: `${w(1.6)} ${w(3.2)}`,
+                        },
+                        children: [(0, n.jsx)(V, { size: w(3) }), 'View on Map'],
+                      }),
+                      (0, n.jsx)('div', {
+                        className: 'aa-fadein',
+                        style: $(2.4),
+                        children: (0, n.jsx)(c.AddToCalendar, {
+                          event: gSangeet,
+                          fileName: 'sangeet-night-ritika-raj',
+                          accent: x,
+                          color: x,
+                          bg: 'rgba(250,244,235,.85)',
+                          label: 'Add to Calendar',
+                          style: {
+                            fontFamily: j,
+                            fontWeight: 600,
+                            fontSize: w(2.3),
+                            letterSpacing: '.14em',
+                            padding: `${w(1.6)} ${w(3.2)}`,
+                          },
+                        }),
+                      }),
+                    ],
                   }),
                 ],
               }),
@@ -2044,98 +2252,98 @@ export default function () {
               id: 'aa-date',
               art: p.foil,
               overlays: (0, n.jsx)(U, {}),
-              label: 'The wedding date',
-              eager: !0,
+              label: 'Reception Cum Dinner',
               children: (0, n.jsxs)(J, {
-                top: 20,
-                bottom: 16,
+                top: 4,
+                bottom: 6,
                 children: [
-                  (0, n.jsx)(B, { size: 3, track: 0.46, color: x, delay: 0.1, children: 'Wedding Reception' }),
-                  (0, n.jsx)(G, { w: 16, delay: 0.4, gap: 2.6 }),
+                  (0, n.jsx)(B, { size: 2.8, track: 0.36, color: x, delay: 0.1, children: 'The Wedding Celebration' }),
+                  (0, n.jsx)(G, { w: 12, delay: 0.3, gap: 1.8 }),
+                  (0, n.jsx)(H, {
+                    text: 'RECEPTION CUM DINNER',
+                    size: 4.4,
+                    track: 0.08,
+                    delay: 0.5,
+                    color: '#8b1e2a',
+                    weight: 600,
+                  }),
                   (0, n.jsx)(as, { onReveal: () => i(!0) }),
-                  (0, n.jsx)('div', {
+                  (0, n.jsxs)('div', {
                     style: {
-                      minHeight: w(25),
-                      marginTop: w(3.4),
+                      minHeight: w(22),
+                      marginTop: w(2),
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                     },
-                    children: t
-                      ? (0, n.jsxs)(n.Fragment, {
-                          children: [
-                            (0, n.jsx)(al, {}),
-                            (0, n.jsx)('div', {
-                              className: 'aa-fadein',
-                              style: { ...$(0.5), marginTop: w(2.6) },
-                              children: (0, n.jsx)(c.AddToCalendar, {
-                                event: g,
-                                fileName: 'ritika-raj-wedding',
-                                accent: x,
-                                color: x,
-                                bg: 'rgba(250,244,235,.7)',
-                                label: 'Add to calendar',
-                                style: {
-                                  fontFamily: j,
-                                  fontWeight: 600,
-                                  fontSize: w(2.9),
-                                  letterSpacing: '.2em',
-                                },
-                              }),
+                    children: [
+                      t
+                        ? (0, n.jsx)(al, {})
+                        : (0, n.jsx)(O, {
+                            size: 4.0,
+                            delay: 1.1,
+                            children: 'Scratch the gold to reveal our day',
+                          }),
+                      (0, n.jsx)(H, {
+                        text: 'Utsav Lawns',
+                        size: 5.6,
+                        delay: 1.3,
+                        color: u,
+                        style: { marginTop: w(1.4) },
+                      }),
+                      (0, n.jsx)(O, {
+                        size: 3.8,
+                        delay: 1.5,
+                        color: y,
+                        style: { marginTop: w(0.3) },
+                        children: 'Press Bazar, Ulhasnagar – 421003',
+                      }),
+                      (0, n.jsxs)('div', {
+                        style: {
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          gap: w(1.8),
+                          flexWrap: 'wrap',
+                          marginTop: w(2),
+                        },
+                        children: [
+                          (0, n.jsxs)('a', {
+                            href: 'https://www.google.com/maps/search/?api=1&query=Utsav+Lawns+Press+Bazar+Ulhasnagar+421003',
+                            target: '_blank',
+                            rel: 'noopener noreferrer',
+                            className: 'aa-pill aa-r',
+                            style: {
+                              ...$(1.7),
+                              fontSize: w(2.3),
+                              letterSpacing: '.16em',
+                              padding: `${w(1.6)} ${w(3.2)}`,
+                            },
+                            children: [(0, n.jsx)(V, { size: w(3) }), 'View on Map'],
+                          }),
+                          (0, n.jsx)('div', {
+                            className: 'aa-fadein',
+                            style: $(1.9),
+                            children: (0, n.jsx)(c.AddToCalendar, {
+                              event: gReception,
+                              fileName: 'wedding-reception-ritika-raj',
+                              accent: x,
+                              color: x,
+                              bg: 'rgba(250,244,235,.85)',
+                              label: 'Add to Calendar',
+                              style: {
+                                fontFamily: j,
+                                fontWeight: 600,
+                                fontSize: w(2.3),
+                                letterSpacing: '.14em',
+                                padding: `${w(1.6)} ${w(3.2)}`,
+                              },
                             }),
-                          ],
-                        })
-                      : (0, n.jsx)(O, {
-                          size: 4,
-                          delay: 1.1,
-                          children: 'Scratch the gold to reveal our day',
-                        }),
-                  }),
-                ],
-              }),
-            }),
-            (0, n.jsx)(q, {
-              id: 'aa-venue',
-              art: p.church,
-              overlays: (0, n.jsx)(aa, {}),
-              label: 'Venue',
-              children: (0, n.jsxs)(J, {
-                top: 12.5,
-                bottom: 31,
-                children: [
-                  (0, n.jsx)(B, { size: 3, track: 0.52, color: x, delay: 0.1, children: 'Venue' }),
-                  (0, n.jsx)(G, { w: 14, delay: 0.35, gap: 2.4 }),
-                  (0, n.jsx)('div', {
-                    className: 'aa-p',
-                    style: { ...$(0.6), marginBottom: w(2) },
-                    children: (0, n.jsx)('div', {
-                      className: 'aa-bob',
-                      children: (0, n.jsx)(V, { size: w(8) }),
-                    }),
-                  }),
-                  (0, n.jsx)(H, { text: 'Utsav', size: 6.6, delay: 0.9, step: 0.05 }),
-                  (0, n.jsx)(H, { text: 'Lawns', size: 6.6, delay: 1.3, step: 0.05 }),
-                  (0, n.jsx)(B, {
-                    size: 2.8,
-                    track: 0.36,
-                    color: x,
-                    delay: 2,
-                    style: { marginTop: w(1.4) },
-                    children: 'Press Bazar, Ulhasnagar 421003',
-                  }),
-                  (0, n.jsxs)('a', {
-                    href: 'https://www.google.com/maps/search/?api=1&query=Utsav+Lawns+Press+Bazar+Ulhasnagar+421003',
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                    className: 'aa-pill aa-r',
-                    style: { ...$(2.4), marginTop: w(4.6) },
-                    children: [(0, n.jsx)(V, { size: w(3.6) }), 'View on map'],
-                  }),
-                  (0, n.jsx)(X, {
-                    size: 8.6,
-                    delay: 3,
-                    style: { marginTop: w(4.6) },
-                    children: 'Reception Cum Dinner',
+                          }),
+                        ],
+                      }),
+                    ],
                   }),
                 ],
               }),
@@ -2143,66 +2351,66 @@ export default function () {
             (0, n.jsx)(q, {
               id: 'aa-family',
               art: p.floral,
-              label: 'With blessings and love',
+              label: 'Blessings & Love',
               children: (0, n.jsxs)(J, {
-                top: 15,
-                bottom: 28,
+                top: 10,
+                bottom: 10,
                 wash: !0,
                 children: [
-                  (0, n.jsx)(B, { size: 3, track: 0.5, delay: 0.2, children: 'With' }),
-                  (0, n.jsx)(X, { size: 8.8, delay: 0.5, children: 'Blessings and Love' }),
-                  (0, n.jsx)(G, { w: 16, delay: 1.6, gap: 2.8 }),
-                  [
-                    ['Bride’s Parents', 'Kavita & Shyamlal Karira', 'Ulhasnagar', 1.9],
-                    ['Groom’s Parents', 'Seema & Ram Chandwani', 'Ulhasnagar', 3.9],
-                  ].map(([a, e, t, i], r) =>
-                    (0, n.jsxs)(
-                      'div',
-                      {
-                        style: { marginTop: r ? w(3.4) : 0 },
-                        children: [
-                          (0, n.jsx)(B, { size: 2.5, track: 0.42, color: x, delay: i, children: a }),
-                          (0, n.jsx)(H, {
-                            text: e,
-                            size: 5.3,
-                            caps: !1,
-                            track: 0,
-                            delay: i + 0.3,
-                            style: { margin: `${w(0.9)} 0 ${w(0.3)}`, lineHeight: 1.3 },
-                          }),
-                          (0, n.jsxs)(O, {
-                            size: 3.9,
-                            delay: i + 0.5 + 0.045 * e.length,
-                            children: ['(', t, ')'],
-                          }),
-                        ],
-                      },
-                      a,
-                    ),
-                  ),
-                  (0, n.jsx)(G, { w: 10, delay: 6, gap: 3 }),
+                  (0, n.jsx)(B, { size: 3.2, track: 0.5, color: x, delay: 0.2, children: 'Blessings & Love' }),
+                  (0, n.jsx)(G, { w: 16, delay: 0.4, gap: 2.6 }),
+                  (0, n.jsx)(O, {
+                    size: 4.8,
+                    delay: 0.6,
+                    color: u,
+                    style: { maxWidth: w(70), lineHeight: 1.6 },
+                    children: '“Your presence and blessings are the greatest gift to us.”',
+                  }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.9, gap: 2.8 }),
+                  (0, n.jsx)(O, {
+                    size: 4.6,
+                    delay: 1.1,
+                    color: '#8b1e2a',
+                    style: { fontStyle: 'italic' },
+                    children: 'Eagerly awaiting our Didi’s wedding!',
+                  }),
+                  (0, n.jsx)(H, {
+                    text: 'Jannat & Bhuvik',
+                    size: 7.6,
+                    delay: 1.4,
+                    color: u,
+                    weight: 600,
+                    style: { marginTop: w(0.8) },
+                  }),
+                  (0, n.jsx)(G, { w: 16, delay: 1.7, gap: 2.8 }),
                   (0, n.jsx)(B, {
-                    size: 2.5,
+                    size: 3.0,
                     track: 0.42,
                     color: x,
-                    delay: 6.2,
-                    children: 'Sharing the Happiness',
+                    delay: 2.0,
+                    children: 'Best Compliments From',
                   }),
-                  ['With best compliments from', 'Karira & Chandwani Families'].map((a, e) =>
-                    (0, n.jsx)(
-                      H,
-                      {
-                        text: a,
-                        size: 4.3,
-                        caps: !1,
-                        track: 0,
-                        delay: 6.5 + +e,
-                        step: 0.035,
-                        style: { margin: `${w(e ? 0.2 : 1)} 0 0`, lineHeight: 1.4 },
-                      },
-                      a,
-                    ),
-                  ),
+                  (0, n.jsx)(X, {
+                    size: 9.5,
+                    delay: 2.3,
+                    color: b,
+                    style: { margin: `${w(0.8)} 0 ${w(0.4)}` },
+                    children: 'With Love,',
+                  }),
+                  (0, n.jsx)(H, {
+                    text: 'Karira Family,',
+                    size: 6.4,
+                    delay: 2.6,
+                    caps: !1,
+                    color: u,
+                  }),
+                  (0, n.jsx)(H, {
+                    text: 'Friends & Relatives.',
+                    size: 6.4,
+                    delay: 2.9,
+                    caps: !1,
+                    color: u,
+                  }),
                 ],
               }),
             }),
@@ -2212,16 +2420,16 @@ export default function () {
               flip: 'x',
               label: 'RSVP',
               children: (0, n.jsxs)(J, {
-                top: 19.5,
+                top: 15,
                 bottom: 12,
                 wash: !0,
                 start: !0,
                 children: [
-                  (0, n.jsx)(B, { size: 3, track: 0.5, delay: 0.1, children: 'Kindly' }),
+                  (0, n.jsx)(B, { size: 3.2, track: 0.5, delay: 0.1, children: 'Kindly' }),
                   (0, n.jsx)(H, { text: 'RSVP', size: 12, weight: 300, track: 0.34, delay: 0.3, step: 0.1 }),
                   (0, n.jsx)(G, { w: 14, delay: 0.9, gap: 2.4 }),
                   (0, n.jsxs)(O, {
-                    size: 4.2,
+                    size: 4.4,
                     delay: 1.2,
                     color: u,
                     children: [
@@ -2237,84 +2445,80 @@ export default function () {
             }),
             (0, n.jsx)(c.ScrollIndicatorMarker, {}),
             (0, n.jsx)(q, {
-              id: 'aa-wedding',
-              art: p.landscape,
-              overlays: (0, n.jsx)(ae, {}),
-              label: 'The wedding',
-              children: (0, n.jsxs)(J, {
-                top: 17,
-                bottom: 45,
-                wash: !0,
-                children: [
-                  (0, n.jsx)(B, {
-                    size: 2.6,
-                    track: 0.3,
-                    color: y,
-                    delay: 0.1,
-                    children: 'Cordially inviting you to',
-                  }),
-                  (0, n.jsx)('div', { style: { height: w(2.2) } }),
-                  (0, n.jsx)(H, { text: 'Sangeet', size: 6.4, delay: 0.4, step: 0.05 }),
-                  (0, n.jsx)(H, { text: 'Night', size: 6.4, delay: 0.9, step: 0.05 }),
-                  (0, n.jsx)(B, {
-                    size: 2.6,
-                    track: 0.32,
-                    color: x,
-                    delay: 1.4,
-                    style: { marginTop: w(1.4) },
-                    children: '1st Floor, Town Hall, Ulhasnagar 421003',
-                  }),
-                  (0, n.jsxs)(O, {
-                    size: 4.8,
-                    delay: 1.7,
-                    color: u,
-                    style: { marginTop: w(1.8) },
-                    children: [
-                      'on December 28',
-                      (0, n.jsx)('span', {
-                        style: { fontSize: '.62em', verticalAlign: '.5em' },
-                        children: 'th',
-                      }),
-                      ', 2026 · 08:00 PM',
-                    ],
-                  }),
-                  (0, n.jsx)(ah, { delay: 2.1 }),
-                  (0, n.jsx)(X, { size: 6.8, delay: 2.7, children: 'Two hearts,' }),
-                  (0, n.jsx)(X, { size: 6.8, delay: 3.2, children: 'Two journeys,' }),
-                  (0, n.jsx)(X, { size: 6.8, delay: 3.7, children: 'One homeward song.' }),
-                ],
-              }),
-            }),
-            (0, n.jsx)(q, {
               id: 'aa-closing',
               art: p.floral,
               flip: 'y',
-              label: 'With love',
+              label: 'With Divine Blessings',
               children: (0, n.jsxs)(J, {
-                top: 34,
-                bottom: 14,
+                top: 14,
+                bottom: 12,
+                wash: !0,
                 children: [
-                  (0, n.jsx)(af, { delay: 0.2 }),
+                  (0, n.jsxs)('div', {
+                    className: 'aa-p',
+                    style: {
+                      ...$(0.2),
+                      position: 'relative',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      margin: `0 auto ${w(1)}`,
+                    },
+                    children: [
+                      (0, n.jsx)('div', {
+                        className: 'aa-halo',
+                        style: {
+                          width: w(32),
+                          height: w(32),
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                          background: 'radial-gradient(closest-side, rgba(255, 225, 140, 0.7), rgba(255, 225, 140, 0))',
+                        },
+                      }),
+                      (0, n.jsx)('img', {
+                        src: p.ganapatiColor,
+                        alt: 'Lord Ganesha Blessings',
+                        style: {
+                          width: w(25),
+                          height: 'auto',
+                          display: 'block',
+                          position: 'relative',
+                          zIndex: 2,
+                          filter: 'drop-shadow(0 4px 14px rgba(140, 90, 30, 0.3))',
+                        },
+                      }),
+                    ],
+                  }),
+                  (0, n.jsx)(B, {
+                    size: 2.8,
+                    track: 0.2,
+                    color: '#8b1e2a',
+                    delay: 0.7,
+                    weight: 600,
+                    style: { marginTop: w(1) },
+                    children: '|| Shree Ganeshaya Namah ||',
+                  }),
                   (0, n.jsxs)(O, {
-                    size: 4.5,
-                    delay: 1.3,
+                    size: 4.4,
+                    delay: 1.0,
                     color: u,
-                    style: { marginTop: w(3.4), lineHeight: 1.6 },
+                    style: { marginTop: w(1.8), lineHeight: 1.6 },
                     children: [
                       'We look forward to celebrating',
                       (0, n.jsx)('br', {}),
                       'our special day with you.',
                     ],
                   }),
-                  (0, n.jsx)(G, { w: 14, delay: 1.9, gap: 3 }),
-                  (0, n.jsx)(X, { size: 10, delay: 2.2, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(G, { w: 14, delay: 1.4, gap: 2.4 }),
+                  (0, n.jsx)(X, { size: 10.5, delay: 1.7, children: 'Ritika & Raj' }),
                   (0, n.jsx)(B, {
-                    size: 2.6,
+                    size: 2.8,
                     track: 0.46,
                     color: x,
-                    delay: 3,
+                    delay: 2.1,
                     style: { marginTop: w(1.2) },
-                    children: '30 · 12 · 2026',
+                    children: '28 & 30 · 12 · 2026',
                   }),
                 ],
               }),
