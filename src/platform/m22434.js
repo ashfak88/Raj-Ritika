@@ -22,14 +22,14 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
     church: `${h}/church.webp`,
     landscape: `${h}/landscape.webp`,
   },
-  f = '2026-11-28T12:15:00+05:30',
+  f = '2026-12-30T21:30:00+05:30',
   m = Date.parse(f),
   g = {
-    title: 'Engagement — Ayswarya & Akhil',
+    title: 'Wedding Reception — Ritika & Raj',
     start: new Date(f),
-    end: new Date('2026-11-28T14:15:00+05:30'),
-    location: 'Holy Magi Forane Church, Muvattupuzha, Kerala',
-    details: 'The engagement of Ayswarya Alex & Akhil Roy. Reception to follow.',
+    end: new Date('2026-12-30T23:59:00+05:30'),
+    location: 'Utsav Lawns, Press Bazar, Ulhasnagar 421003',
+    details: 'Wedding Reception (Reception Cum Dinner) of Ritika Karira & Raj Chandwani.',
     uid: `${d}-main@zetron.tech`,
   },
   u = '#4a3a2e',
@@ -900,7 +900,7 @@ function ai({ onBegin: a, onDone: e }) {
                     letterSpacing: '.04em',
                   },
                   children: [
-                    'A',
+                    'R',
                     (0, n.jsx)('span', {
                       style: {
                         fontStyle: 'italic',
@@ -911,7 +911,7 @@ function ai({ onBegin: a, onDone: e }) {
                       },
                       children: '&',
                     }),
-                    'A',
+                    'R',
                   ],
                 }),
                 (0, n.jsx)('div', {
@@ -922,7 +922,7 @@ function ai({ onBegin: a, onDone: e }) {
                 (0, n.jsx)('p', {
                   className: 'aa-cin',
                   style: { ...$(1.55), ...d(2.9, 0.34, y) },
-                  children: '28 November 2026',
+                  children: '30 December 2026',
                 }),
                 (0, n.jsx)('div', {
                   className: 'aa-tap',
@@ -961,7 +961,7 @@ function ai({ onBegin: a, onDone: e }) {
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
                           style: { ...$(0.8), ...d(3.1, 0.5, u) },
-                          children: 'Engagement',
+                          children: 'Wedding',
                         }),
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
@@ -1243,7 +1243,7 @@ function as({ onReveal: a }) {
     role: 'button',
     tabIndex: 0,
     'aria-label': o
-      ? 'Saturday, 28 November 2026 at 12:15 PM'
+      ? 'Monday, 30 December 2026 at 09:30 PM'
       : 'Scratch the gold to reveal the date — or press Enter',
     onKeyDown: (a) => {
       o || ('Enter' !== a.key && ' ' !== a.key) || (a.preventDefault(), m())
@@ -1253,7 +1253,7 @@ function as({ onReveal: a }) {
         className: `aa-dateblock${o ? ' on' : ''}`,
         'aria-hidden': !o,
         children: [
-          (0, n.jsx)('p', { style: S(3.7, 0.5, u), children: 'November' }),
+          (0, n.jsx)('p', { style: S(3.7, 0.5, u), children: 'December' }),
           (0, n.jsx)('p', {
             className: 'aa-foiltext',
             style: {
@@ -1263,11 +1263,11 @@ function as({ onReveal: a }) {
               lineHeight: 0.95,
               margin: `${w(0.4)} 0 ${w(0.2)}`,
             },
-            children: '28',
+            children: '30',
           }),
           (0, n.jsx)('p', { style: S(3.7, 0.5, u), children: '2026' }),
           (0, n.jsx)(G, { w: 11, gap: 1.8, animate: !1 }),
-          (0, n.jsx)('p', { style: S(3, 0.42, y), children: 'Saturday' }),
+          (0, n.jsx)('p', { style: S(3, 0.42, y), children: 'Monday' }),
           (0, n.jsx)('p', {
             style: {
               fontFamily: j,
@@ -1278,7 +1278,7 @@ function as({ onReveal: a }) {
               color: u,
               margin: `${w(0.4)} 0 0`,
             },
-            children: '12:15 PM',
+            children: '09:30 PM',
           }),
         ],
       }),
@@ -1467,7 +1467,7 @@ function ad() {
       if (null === t) return void p('Please let us know if you can attend.')
       ;(p(''), c('sending'))
       try {
-        let msg = `Hello! This is ${a.trim()}. ${t ? `I will be attending (${r} ${1 === r ? 'guest' : 'guests'}).` : 'Sorry, I will not be able to attend.'} - Ayswarya & Akhil's engagement`
+        let msg = `Hello! This is ${a.trim()}. ${t ? `I will be attending (${r} ${1 === r ? 'guest' : 'guests'}).` : 'Sorry, I will not be able to attend.'} - Ritika & Raj's Wedding Reception`
         ;(window.open(`https://wa.me/${RSVP_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'), c('done'))
       } catch {
         ;(p('Network error — please check your connection and try again.'), c('idle'))
@@ -1858,12 +1858,12 @@ function af({ delay: a }) {
           letterSpacing: '.04em',
         },
         children: [
-          'A',
+          'R',
           (0, n.jsx)('span', {
             style: { fontStyle: 'italic', fontSize: '.55em', color: b, margin: '0 .22em' },
             children: '&',
           }),
-          'A',
+          'R',
         ],
       }),
     ],
@@ -1912,7 +1912,7 @@ export default function () {
         let a = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
         !e &&
           a < 40 &&
-          document.getElementById('aa-date')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          document.getElementById('aa-couple')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }, 8500)
       return () => {
         ;(clearTimeout(r), i.forEach((a) => window.removeEventListener(a, t, { capture: !0 })))
@@ -1951,7 +1951,7 @@ export default function () {
                     color: x,
                     delay: 1.6,
                     style: { marginTop: w(1.4) },
-                    children: 'Ruth 1:16',
+                    children: 'Two Hearts · One Journey',
                   }),
                   (0, n.jsx)(G, { w: 18, delay: 1.9, gap: 3.4 }),
                   (0, n.jsx)(B, {
@@ -1961,9 +1961,9 @@ export default function () {
                     children: 'Together with their family',
                   }),
                   (0, n.jsx)('div', { style: { height: w(3) } }),
-                  (0, n.jsx)(H, { text: 'Ayswarya Alex', size: 7.2, delay: 2.5 }),
+                  (0, n.jsx)(H, { text: 'Ritika Karira', size: 7.2, delay: 2.5 }),
                   (0, n.jsx)(X, { size: 9, delay: 3.2, style: { margin: `${w(0.2)} 0` }, children: 'and' }),
-                  (0, n.jsx)(H, { text: 'Akhil Roy', size: 7.2, delay: 3.6 }),
+                  (0, n.jsx)(H, { text: 'Raj Chandwani', size: 7.2, delay: 3.6 }),
                   (0, n.jsx)('div', { style: { height: w(3.4) } }),
                   (0, n.jsxs)(B, {
                     size: 2.6,
@@ -1979,7 +1979,63 @@ export default function () {
                     color: x,
                     delay: 4.5,
                     style: { marginTop: w(0.8) },
-                    children: 'Engagement',
+                    children: 'Reception Cum Dinner',
+                  }),
+                ],
+              }),
+            }),
+            (0, n.jsx)(q, {
+              id: 'aa-couple',
+              art: p.floral,
+              label: 'Ritika & Raj',
+              children: (0, n.jsxs)(J, {
+                top: 8,
+                bottom: 8,
+                wash: !0,
+                children: [
+                  (0, n.jsx)(B, { size: 2.8, track: 0.44, color: x, delay: 0.1, children: 'Together Forever' }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.35, gap: 2.2 }),
+                  (0, n.jsx)('div', {
+                    className: 'aa-p',
+                    style: {
+                      ...$(0.6),
+                      width: w(52),
+                      height: w(72),
+                      margin: `${w(2)} auto`,
+                      position: 'relative',
+                      borderRadius: `${w(26)} ${w(26)} ${w(3.2)} ${w(3.2)}`,
+                      padding: w(1.2),
+                      background: 'linear-gradient(135deg, #c9a567, #f3dfaa 50%, #8f6d38)',
+                      boxShadow: '0 14px 34px rgba(90,64,40,.24), 0 2px 8px rgba(90,64,40,.12)',
+                    },
+                    children: (0, n.jsx)('div', {
+                      style: {
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: `${w(25)} ${w(25)} ${w(2.4)} ${w(2.4)}`,
+                        overflow: 'hidden',
+                        position: 'relative',
+                      },
+                      children: (0, n.jsx)('img', {
+                        src: '/images/couple.jpg',
+                        alt: 'Ritika & Raj',
+                        style: {
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center 20%',
+                          display: 'block',
+                        },
+                      }),
+                    }),
+                  }),
+                  (0, n.jsx)(X, { size: 8.8, delay: 1, style: { marginTop: w(1.8) }, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(O, {
+                    size: 4.2,
+                    delay: 1.3,
+                    color: u,
+                    style: { marginTop: w(0.8) },
+                    children: 'Two hearts, one love, together forever.',
                   }),
                 ],
               }),
@@ -1988,13 +2044,13 @@ export default function () {
               id: 'aa-date',
               art: p.foil,
               overlays: (0, n.jsx)(U, {}),
-              label: 'The engagement date',
+              label: 'The wedding date',
               eager: !0,
               children: (0, n.jsxs)(J, {
                 top: 20,
                 bottom: 16,
                 children: [
-                  (0, n.jsx)(B, { size: 3, track: 0.46, color: x, delay: 0.1, children: 'The Engagement' }),
+                  (0, n.jsx)(B, { size: 3, track: 0.46, color: x, delay: 0.1, children: 'Wedding Reception' }),
                   (0, n.jsx)(G, { w: 16, delay: 0.4, gap: 2.6 }),
                   (0, n.jsx)(as, { onReveal: () => i(!0) }),
                   (0, n.jsx)('div', {
@@ -2014,7 +2070,7 @@ export default function () {
                               style: { ...$(0.5), marginTop: w(2.6) },
                               children: (0, n.jsx)(c.AddToCalendar, {
                                 event: g,
-                                fileName: 'ayswarya-akhil-engagement',
+                                fileName: 'ritika-raj-wedding',
                                 accent: x,
                                 color: x,
                                 bg: 'rgba(250,244,235,.7)',
@@ -2057,18 +2113,18 @@ export default function () {
                       children: (0, n.jsx)(V, { size: w(8) }),
                     }),
                   }),
-                  (0, n.jsx)(H, { text: 'Holy Magi', size: 6.6, delay: 0.9, step: 0.05 }),
-                  (0, n.jsx)(H, { text: 'Forane Church', size: 6.6, delay: 1.3, step: 0.05 }),
+                  (0, n.jsx)(H, { text: 'Utsav', size: 6.6, delay: 0.9, step: 0.05 }),
+                  (0, n.jsx)(H, { text: 'Lawns', size: 6.6, delay: 1.3, step: 0.05 }),
                   (0, n.jsx)(B, {
-                    size: 3,
-                    track: 0.46,
+                    size: 2.8,
+                    track: 0.36,
                     color: x,
                     delay: 2,
                     style: { marginTop: w(1.4) },
-                    children: 'Muvattupuzha',
+                    children: 'Press Bazar, Ulhasnagar 421003',
                   }),
                   (0, n.jsxs)('a', {
-                    href: 'https://maps.app.goo.gl/W3qsSYBG8iU2F17r7',
+                    href: 'https://www.google.com/maps/search/?api=1&query=Utsav+Lawns+Press+Bazar+Ulhasnagar+421003',
                     target: '_blank',
                     rel: 'noopener noreferrer',
                     className: 'aa-pill aa-r',
@@ -2079,7 +2135,7 @@ export default function () {
                     size: 8.6,
                     delay: 3,
                     style: { marginTop: w(4.6) },
-                    children: 'Reception to follow',
+                    children: 'Reception Cum Dinner',
                   }),
                 ],
               }),
@@ -2097,8 +2153,8 @@ export default function () {
                   (0, n.jsx)(X, { size: 8.8, delay: 0.5, children: 'Blessings and Love' }),
                   (0, n.jsx)(G, { w: 16, delay: 1.6, gap: 2.8 }),
                   [
-                    ['Bride’s Parents', 'Alex P James & Laly Paul', 'Parakattel House, Muvattupuzha', 1.9],
-                    ['Groom’s Parents', 'Roy Thomas & Kavitha Pious', 'Kavitha, Kollam', 3.9],
+                    ['Bride’s Parents', 'Kavita & Shyamlal Karira', 'Ulhasnagar', 1.9],
+                    ['Groom’s Parents', 'Seema & Ram Chandwani', 'Ulhasnagar', 3.9],
                   ].map(([a, e, t, i], r) =>
                     (0, n.jsxs)(
                       'div',
@@ -2132,7 +2188,7 @@ export default function () {
                     delay: 6.2,
                     children: 'Sharing the Happiness',
                   }),
-                  ['Arya Alex, Don George Alex,', 'Arsha Roy and John Christo Geevarghese'].map((a, e) =>
+                  ['With best compliments from', 'Karira & Chandwani Families'].map((a, e) =>
                     (0, n.jsx)(
                       H,
                       {
@@ -2195,18 +2251,18 @@ export default function () {
                     track: 0.3,
                     color: y,
                     delay: 0.1,
-                    children: 'Wedding will be solemnized at',
+                    children: 'Cordially inviting you to',
                   }),
                   (0, n.jsx)('div', { style: { height: w(2.2) } }),
-                  (0, n.jsx)(H, { text: 'Infant Jesus', size: 6.4, delay: 0.4, step: 0.05 }),
-                  (0, n.jsx)(H, { text: 'Cathedral', size: 6.4, delay: 0.9, step: 0.05 }),
+                  (0, n.jsx)(H, { text: 'Sangeet', size: 6.4, delay: 0.4, step: 0.05 }),
+                  (0, n.jsx)(H, { text: 'Night', size: 6.4, delay: 0.9, step: 0.05 }),
                   (0, n.jsx)(B, {
-                    size: 2.9,
-                    track: 0.42,
+                    size: 2.6,
+                    track: 0.32,
                     color: x,
                     delay: 1.4,
                     style: { marginTop: w(1.4) },
-                    children: 'Thangassery, Kollam',
+                    children: '1st Floor, Town Hall, Ulhasnagar 421003',
                   }),
                   (0, n.jsxs)(O, {
                     size: 4.8,
@@ -2219,7 +2275,7 @@ export default function () {
                         style: { fontSize: '.62em', verticalAlign: '.5em' },
                         children: 'th',
                       }),
-                      ', 2026',
+                      ', 2026 · 08:00 PM',
                     ],
                   }),
                   (0, n.jsx)(ah, { delay: 2.1 }),
@@ -2251,14 +2307,14 @@ export default function () {
                     ],
                   }),
                   (0, n.jsx)(G, { w: 14, delay: 1.9, gap: 3 }),
-                  (0, n.jsx)(X, { size: 10, delay: 2.2, children: 'Ayswarya & Akhil' }),
+                  (0, n.jsx)(X, { size: 10, delay: 2.2, children: 'Ritika & Raj' }),
                   (0, n.jsx)(B, {
                     size: 2.6,
                     track: 0.46,
                     color: x,
                     delay: 3,
                     style: { marginTop: w(1.2) },
-                    children: '28 · 11 · 2026',
+                    children: '30 · 12 · 2026',
                   }),
                 ],
               }),
