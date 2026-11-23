@@ -2001,8 +2001,8 @@ export default function () {
               label: 'The Sacred Announcement',
               eager: !0,
               children: (0, n.jsxs)(J, {
-                top: 2.8,
-                bottom: 3.5,
+                top: 0.6,
+                bottom: 9.4,
                 wash: !0,
                 children: [
                   (0, n.jsxs)('div', {
