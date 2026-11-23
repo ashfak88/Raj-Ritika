@@ -49,7 +49,7 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   b = '#a07c45',
   v = '#efe4d6',
   j = "'Cormorant Garamond', Georgia, serif",
-  k = "'Great Vibes', 'Alex Brush', cursive",
+  k = "'Alex Brush', cursive",
   fontDate = "'Playfair Display', 'Cinzel', Georgia, serif",
   w = (a) => `calc(var(--u) * ${a})`,
   $ = (a) => ({ '--d': `${a}s` })
@@ -2106,13 +2106,12 @@ export default function () {
                     children: 'We joyfully announce the beautiful beginning of',
                   }),
                   (0, n.jsx)(X, {
-                    size: 15.5,
+                    size: 16,
                     delay: 1.6,
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(0.3)} 0 ${w(0.1)}`,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
-                      letterSpacing: '.02em',
                     },
                     children: 'Ritika',
                   }),
@@ -2128,13 +2127,12 @@ export default function () {
                     children: '♡',
                   }),
                   (0, n.jsx)(X, {
-                    size: 15.5,
+                    size: 16,
                     delay: 2.2,
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(0.1)} 0 ${w(0.1)}`,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
-                      letterSpacing: '.02em',
                     },
                     children: 'Raj',
                   }),
