@@ -48,7 +48,7 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   x = '#7d5f2e',
   b = '#a07c45',
   v = '#efe4d6',
-  j = "'Cormorant Garamond', Georgia, serif",
+  j = "'Inter', sans-serif",
   k = "'Alex Brush', cursive",
   fontDate = "'Playfair Display', 'Cinzel', Georgia, serif",
   w = (a) => `calc(var(--u) * ${a})`,
@@ -130,14 +130,14 @@ let N = (a) => Math.round(100 * a) / 100,
       tone: e % I.length,
     }))),
   L = `
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Inter:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 .aa-root,.aa-cover{--u:min(1.06vw,.49vh)}
 @supports (height:1svh){.aa-root,.aa-cover{--u:min(1.06vw,.49svh)}}
 @media (max-width:480px){
   .aa-root,.aa-cover{--u:min(1.15vw,.52vh)}
   @supports (height:1svh){.aa-root,.aa-cover{--u:min(1.15vw,.52svh)}}
 }
-.aa-root{background:${v};color:${u};overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+.aa-root{background:${v};color:${u};overflow-x:hidden;-webkit-tap-highlight-color:transparent;font-family:'Inter',sans-serif}
 .aa-page{position:relative;height:100vh;height:100svh;overflow:hidden;background:${v}}
 .aa-bg{display:none;position:absolute;inset:-60px;background-image:var(--bg);background-size:cover;background-position:center;filter:blur(26px) saturate(1.05);opacity:.9}
 .aa-art{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100vw,calc(100vh*0.5628));height:max(100vh,calc(100vw/0.5628))}
@@ -468,7 +468,7 @@ function O({ children: a, size: e = 4.3, delay: t = 0, color: i = y, style: r })
     style: {
       ...$(t),
       fontFamily: j,
-      fontStyle: 'italic',
+      fontStyle: 'normal',
       fontWeight: 400,
       fontSize: w(e),
       color: i,
