@@ -50,6 +50,7 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   v = '#efe4d6',
   j = "'Cormorant Garamond', Georgia, serif",
   k = "'Great Vibes', 'Alex Brush', cursive",
+  fontDate = "'Playfair Display', 'Cinzel', Georgia, serif",
   w = (a) => `calc(var(--u) * ${a})`,
   $ = (a) => ({ '--d': `${a}s` })
 function z(a) {
@@ -129,7 +130,7 @@ let N = (a) => Math.round(100 * a) / 100,
       tone: e % I.length,
     }))),
   L = `
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 .aa-root,.aa-cover{--u:min(1.06vw,.49vh)}
 @supports (height:1svh){.aa-root,.aa-cover{--u:min(1.06vw,.49svh)}}
 @media (max-width:480px){
@@ -964,8 +965,14 @@ function ai({ onBegin: a, onDone: e }) {
                 }),
                 (0, n.jsx)('p', {
                   className: 'aa-cin',
-                  style: { ...$(1.55), ...d(3.2, 0.34, y) },
-                  children: '28 & 30 December 2026',
+                  style: {
+                    ...$(1.55),
+                    ...d(3.4, 0.36, y),
+                    fontFamily: fontDate,
+                    fontVariantNumeric: 'lining-nums',
+                    fontWeight: 600,
+                  },
+                  children: 'December 2026',
                 }),
                 (0, n.jsx)('div', {
                   className: 'aa-tap',
@@ -1269,7 +1276,7 @@ function as({ onReveal: a }) {
       h.current.down && ((h.current.down = !1), (h.current.last = null), g())
     },
     S = (a, e, t) => ({
-      fontFamily: j,
+      fontFamily: fontDate,
       fontWeight: 500,
       fontSize: w(a),
       letterSpacing: `${e}em`,
@@ -1278,6 +1285,7 @@ function as({ onReveal: a }) {
       color: t,
       margin: 0,
       lineHeight: 1.45,
+      fontVariantNumeric: 'lining-nums',
     })
   return (0, n.jsxs)('div', {
     ref: e,
@@ -1300,11 +1308,12 @@ function as({ onReveal: a }) {
           (0, n.jsx)('p', {
             className: 'aa-foiltext',
             style: {
-              fontFamily: j,
-              fontWeight: 300,
+              fontFamily: fontDate,
+              fontWeight: 400,
               fontSize: w(24),
               lineHeight: 0.95,
               margin: `${w(0.4)} 0 ${w(0.2)}`,
+              fontVariantNumeric: 'lining-nums',
             },
             children: '30',
           }),
@@ -1313,13 +1322,14 @@ function as({ onReveal: a }) {
           (0, n.jsx)('p', { style: S(3.2, 0.42, y), children: 'Wednesday' }),
           (0, n.jsx)('p', {
             style: {
-              fontFamily: j,
+              fontFamily: fontDate,
               fontWeight: 500,
               fontSize: w(5.4),
               letterSpacing: '.14em',
               paddingLeft: '.14em',
               color: u,
               margin: `${w(0.4)} 0 0`,
+              fontVariantNumeric: 'lining-nums',
             },
             children: '09:30 PM',
           }),
@@ -1983,8 +1993,8 @@ export default function () {
               label: 'The Sacred Announcement',
               eager: !0,
               children: (0, n.jsxs)(J, {
-                top: 2.5,
-                bottom: 2.5,
+                top: 2.8,
+                bottom: 3.5,
                 wash: !0,
                 children: [
                   (0, n.jsxs)('div', {
@@ -1995,14 +2005,14 @@ export default function () {
                       display: 'flex',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      margin: `0 auto ${w(0.4)}`,
+                      margin: `0 auto ${w(0.3)}`,
                     },
                     children: [
                       (0, n.jsx)('div', {
                         className: 'aa-halo',
                         style: {
-                          width: w(24),
-                          height: w(24),
+                          width: w(22),
+                          height: w(22),
                           top: '50%',
                           left: '50%',
                           transform: 'translate(-50%, -50%)',
@@ -2013,7 +2023,7 @@ export default function () {
                         src: p.ganapatiColor,
                         alt: 'Lord Ganesha Blessings',
                         style: {
-                          width: w(16),
+                          width: w(15),
                           height: 'auto',
                           display: 'block',
                           position: 'relative',
@@ -2024,60 +2034,75 @@ export default function () {
                     ],
                   }),
                   (0, n.jsx)(B, {
-                    size: 3.0,
-                    track: 0.16,
+                    size: 2.9,
+                    track: 0.14,
                     color: '#8b1e2a',
                     delay: 0.2,
                     weight: 600,
+                    style: { whiteSpace: 'nowrap' },
                     children: '|| Om Shree Ganeshaya Namah ||',
                   }),
                   (0, n.jsx)(B, {
-                    size: 2.8,
+                    size: 2.7,
                     track: 0.14,
                     color: '#8b1e2a',
-                    delay: 0.4,
+                    delay: 0.35,
                     weight: 600,
-                    style: { marginTop: w(0.15) },
-                    children: '|| Jai Jhulelal ||  || Jai Vasan Ghot ||',
+                    style: { marginTop: w(0.12), whiteSpace: 'nowrap' },
+                    children: '|| Jai Jhulelal ||',
                   }),
-                  (0, n.jsx)(G, { w: 14, delay: 0.6, gap: 1.2 }),
+                  (0, n.jsx)(B, {
+                    size: 2.7,
+                    track: 0.14,
+                    color: '#8b1e2a',
+                    delay: 0.5,
+                    weight: 600,
+                    style: { marginTop: w(0.12), whiteSpace: 'nowrap' },
+                    children: '|| Jai Vasan Ghot ||',
+                  }),
+                  (0, n.jsx)(G, { w: 13, delay: 0.65, gap: 1.0 }),
                   (0, n.jsx)(O, {
-                    size: 3.6,
+                    size: 3.5,
                     delay: 0.8,
                     color: y,
                     children: 'With the Divine Blessings of',
                   }),
                   (0, n.jsx)(B, {
-                    size: 3.2,
-                    track: 0.1,
+                    size: 2.7,
+                    track: 0.05,
                     color: u,
-                    delay: 1.0,
+                    delay: 0.95,
                     weight: 600,
-                    style: { margin: `${w(0.25)} 0 ${w(0.1)}` },
+                    style: {
+                      margin: `${w(0.2)} 0 ${w(0.1)}`,
+                      whiteSpace: 'nowrap',
+                      maxWidth: '100%',
+                    },
                     children: 'Late Smt. Kaushalyabai & Shri Bilandmal Karira',
                   }),
                   (0, n.jsx)(B, {
-                    size: 3.2,
-                    track: 0.1,
+                    size: 2.7,
+                    track: 0.06,
                     color: u,
-                    delay: 1.2,
+                    delay: 1.1,
                     weight: 600,
+                    style: { whiteSpace: 'nowrap' },
                     children: 'Late Shri Prakash B. Karira',
                   }),
-                  (0, n.jsx)(G, { w: 12, delay: 1.4, gap: 1.2 }),
+                  (0, n.jsx)(G, { w: 12, delay: 1.25, gap: 1.0 }),
                   (0, n.jsx)(O, {
-                    size: 3.8,
-                    delay: 1.6,
+                    size: 3.6,
+                    delay: 1.4,
                     color: y,
                     style: { marginTop: w(0.2) },
                     children: 'We joyfully announce the beautiful beginning of',
                   }),
                   (0, n.jsx)(X, {
                     size: 15.5,
-                    delay: 1.9,
+                    delay: 1.6,
                     color: '#8b1e2a',
                     style: {
-                      margin: `${w(0.4)} 0 ${w(0.1)}`,
+                      margin: `${w(0.3)} 0 ${w(0.1)}`,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
                       letterSpacing: '.02em',
                     },
@@ -2085,18 +2110,18 @@ export default function () {
                   }),
                   (0, n.jsx)(O, {
                     size: 3.6,
-                    delay: 2.1,
+                    delay: 1.8,
                     color: y,
                     children: '( D/o Smt. Kavita & Shri Shyamlal Karira )',
                   }),
                   (0, n.jsx)('div', {
                     className: 'aa-r',
-                    style: { ...$(2.3), fontSize: w(4.2), color: b, margin: `${w(0.25)} 0` },
+                    style: { ...$(2.0), fontSize: w(4.0), color: b, margin: `${w(0.25)} 0` },
                     children: '♡',
                   }),
                   (0, n.jsx)(X, {
                     size: 15.5,
-                    delay: 2.5,
+                    delay: 2.2,
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(0.1)} 0 ${w(0.1)}`,
@@ -2107,25 +2132,9 @@ export default function () {
                   }),
                   (0, n.jsx)(O, {
                     size: 3.6,
-                    delay: 2.7,
+                    delay: 2.4,
                     color: y,
                     children: '( S/o Smt. Seema & Shri Ram Chandwani )',
-                  }),
-                  (0, n.jsx)(O, {
-                    size: 3.8,
-                    delay: 3.0,
-                    color: y,
-                    style: { marginTop: w(0.6) },
-                    children: 'Cordially invite you to join us for the',
-                  }),
-                  (0, n.jsx)(B, {
-                    size: 3.8,
-                    track: 0.42,
-                    color: x,
-                    delay: 3.2,
-                    weight: 600,
-                    style: { marginTop: w(0.3) },
-                    children: 'Wedding & Reception',
                   }),
                 ],
               }),
@@ -2135,21 +2144,21 @@ export default function () {
               art: p.floral,
               label: 'Meet the Couple',
               children: (0, n.jsxs)(J, {
-                top: 4,
-                bottom: 4,
+                top: 2.5,
+                bottom: 3.0,
                 wash: !0,
                 children: [
-                  (0, n.jsx)(B, { size: 3.8, track: 0.44, color: x, delay: 0.1, weight: 600, children: 'Meet the Couple' }),
-                  (0, n.jsx)(G, { w: 16, delay: 0.3, gap: 1.8 }),
+                  (0, n.jsx)(B, { size: 3.6, track: 0.44, color: x, delay: 0.1, weight: 600, children: 'Meet the Couple' }),
+                  (0, n.jsx)(G, { w: 15, delay: 0.25, gap: 1.6 }),
                   (0, n.jsx)('div', {
                     className: 'aa-p',
                     style: {
-                      ...$(0.5),
-                      width: 'min(82vw, calc(var(--u) * 68))',
-                      height: 'min(44vh, calc(var(--u) * 72))',
-                      margin: `${w(1.2)} auto`,
+                      ...$(0.4),
+                      width: 'min(86vw, calc(var(--u) * 78))',
+                      height: 'min(52vh, calc(var(--u) * 88))',
+                      margin: `${w(1.0)} auto`,
                       position: 'relative',
-                      borderRadius: `${w(34)} ${w(34)} ${w(4)} ${w(4)}`,
+                      borderRadius: `${w(39)} ${w(39)} ${w(4)} ${w(4)}`,
                       padding: w(1.2),
                       background: 'linear-gradient(135deg, #c9a567 0%, #f7e6b8 35%, #b58d4f 70%, #8a6430 100%)',
                       boxShadow: '0 16px 42px rgba(90,64,40,.28), 0 2px 10px rgba(90,64,40,.15)',
@@ -2158,7 +2167,7 @@ export default function () {
                       style: {
                         width: '100%',
                         height: '100%',
-                        borderRadius: `${w(33)} ${w(33)} ${w(3)} ${w(3)}`,
+                        borderRadius: `${w(38)} ${w(38)} ${w(3)} ${w(3)}`,
                         overflow: 'hidden',
                         position: 'relative',
                       },
@@ -2175,56 +2184,22 @@ export default function () {
                       }),
                     }),
                   }),
-                  (0, n.jsx)(X, { size: 14, delay: 0.8, color: '#8b1e2a', style: { margin: `${w(0.6)} 0 ${w(0.3)}` }, children: 'Ritika & Raj' }),
-                  (0, n.jsxs)('div', {
-                    className: 'aa-r',
-                    style: {
-                      ...$(1.0),
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      gap: w(0.4),
-                      marginTop: w(0.2),
-                      width: '100%',
-                    },
-                    children: [
-                      (0, n.jsx)(O, {
-                        size: 4.2,
-                        delay: 1.1,
-                        color: u,
-                        children: 'Ritika ( D/o Smt. Kavita & Shri Shyamlal Karira )',
-                      }),
-                      (0, n.jsx)('span', {
-                        style: {
-                          color: b,
-                          fontSize: w(3.6),
-                          lineHeight: 1,
-                        },
-                        children: '♡',
-                      }),
-                      (0, n.jsx)(O, {
-                        size: 4.2,
-                        delay: 1.3,
-                        color: u,
-                        children: 'Raj ( S/o Smt. Seema & Shri Ram Chandwani )',
-                      }),
-                    ],
-                  }),
-                  (0, n.jsx)(G, { w: 12, delay: 1.5, gap: 1.6 }),
+                  (0, n.jsx)(X, { size: 16, delay: 0.7, color: '#8b1e2a', style: { margin: `${w(0.5)} 0 ${w(0.2)}` }, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(G, { w: 12, delay: 0.9, gap: 1.4 }),
                   (0, n.jsx)(O, {
-                    size: 4.6,
-                    delay: 1.7,
+                    size: 4.4,
+                    delay: 1.1,
                     color: x,
-                    style: { fontStyle: 'italic', maxWidth: w(74), lineHeight: 1.4 },
+                    style: { fontStyle: 'italic', maxWidth: w(74), lineHeight: 1.4, margin: `${w(0.2)} 0 0` },
                     children: '“Two hearts, one soul, together forever.”',
                   }),
                   (0, n.jsx)(B, {
-                    size: 3.2,
-                    track: 0.28,
+                    size: 3.0,
+                    track: 0.26,
                     color: y,
-                    delay: 1.9,
+                    delay: 1.3,
                     weight: 600,
-                    style: { marginTop: w(0.8) },
+                    style: { marginTop: w(0.6) },
                     children: 'Scroll to explore the celebrations ↓',
                   }),
                 ],
@@ -2235,8 +2210,8 @@ export default function () {
               art: p.floral,
               label: 'Sangeet Night',
               children: (0, n.jsxs)(J, {
-                top: 5,
-                bottom: 5,
+                top: 3.5,
+                bottom: 4.5,
                 wash: !0,
                 children: [
                   (0, n.jsx)(B, { size: 3.6, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'Join Us for the Sangeet' }),
@@ -2255,8 +2230,8 @@ export default function () {
                     style: {
                       ...$(0.9),
                       width: 'min(90vw, calc(var(--u) * 78))',
-                      margin: `${w(1.6)} auto`,
-                      padding: `${w(2.2)} ${w(3.2)}`,
+                      margin: `${w(1.2)} auto`,
+                      padding: `${w(1.8)} ${w(3.0)}`,
                       background: 'linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(250,242,228,0.94) 100%)',
                       border: '1.5px solid rgba(176,141,87,0.7)',
                       borderRadius: w(3),
@@ -2272,17 +2247,19 @@ export default function () {
                         track: 0.3,
                         color: x,
                         weight: 600,
+                        style: { fontFamily: fontDate },
                         children: 'DATE & TIME',
                       }),
                       (0, n.jsx)('div', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 700,
                           fontSize: w(5.6),
                           color: '#8b1e2a',
                           letterSpacing: '.06em',
                           textTransform: 'uppercase',
                           lineHeight: 1.2,
+                          fontVariantNumeric: 'lining-nums',
                         },
                         children: 'Monday, 28th Dec 2026',
                       }),
@@ -2295,11 +2272,12 @@ export default function () {
                       }),
                       (0, n.jsx)('div', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 600,
                           fontSize: w(4.4),
                           color: u,
                           letterSpacing: '.08em',
+                          fontVariantNumeric: 'lining-nums',
                         },
                         children: 'From 8:00 PM Onwards',
                       }),
@@ -2311,7 +2289,7 @@ export default function () {
                     color: y,
                     delay: 1.2,
                     weight: 600,
-                    style: { marginTop: w(1) },
+                    style: { fontFamily: fontDate, marginTop: w(0.8) },
                     children: 'VENUE',
                   }),
                   (0, n.jsx)(H, {
@@ -2320,13 +2298,13 @@ export default function () {
                     delay: 1.4,
                     color: u,
                     weight: 600,
-                    style: { marginTop: w(0.3) },
+                    style: { fontFamily: fontDate, marginTop: w(0.2) },
                   }),
                   (0, n.jsxs)('div', {
                     className: 'aa-r',
                     style: {
                       ...$(1.6),
-                      marginTop: w(0.6),
+                      marginTop: w(0.4),
                       width: '100%',
                       display: 'flex',
                       flexDirection: 'column',
@@ -2335,19 +2313,20 @@ export default function () {
                     children: [
                       (0, n.jsx)('p', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 500,
                           fontSize: w(4.4),
                           color: u,
                           margin: 0,
                           lineHeight: 1.4,
                           textAlign: 'center',
+                          fontVariantNumeric: 'lining-nums',
                         },
                         children: '1st Floor, Town Hall',
                       }),
                       (0, n.jsx)('p', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 600,
                           fontSize: w(4.4),
                           color: '#8b1e2a',
@@ -2355,8 +2334,9 @@ export default function () {
                           whiteSpace: 'nowrap',
                           textAlign: 'center',
                           letterSpacing: '.04em',
+                          fontVariantNumeric: 'lining-nums',
                         },
-                        children: 'Ulhasnagar 421003',
+                        children: 'Ulhasnagar - 421003',
                       }),
                     ],
                   }),
@@ -2368,7 +2348,7 @@ export default function () {
                       alignItems: 'center',
                       gap: w(1.8),
                       flexWrap: 'wrap',
-                      marginTop: w(2),
+                      marginTop: w(1.4),
                     },
                     children: [
                       (0, n.jsxs)('a', {
@@ -2378,6 +2358,7 @@ export default function () {
                         className: 'aa-pill aa-r',
                         style: {
                           ...$(1.8),
+                          fontFamily: fontDate,
                           fontSize: w(2.5),
                           letterSpacing: '.16em',
                           padding: `${w(1.6)} ${w(3.2)}`,
@@ -2395,7 +2376,7 @@ export default function () {
                           bg: 'rgba(250,244,235,.85)',
                           label: 'Add to Calendar',
                           style: {
-                            fontFamily: j,
+                            fontFamily: fontDate,
                             fontWeight: 600,
                             fontSize: w(2.5),
                             letterSpacing: '.14em',
@@ -2465,22 +2446,24 @@ export default function () {
                         children: [
                           (0, n.jsx)('span', {
                             style: {
-                              fontFamily: j,
+                              fontFamily: fontDate,
                               fontWeight: 700,
                               fontSize: w(4.8),
                               color: '#8b1e2a',
                               letterSpacing: '.06em',
                               textTransform: 'uppercase',
+                              fontVariantNumeric: 'lining-nums',
                             },
                             children: 'Wed · 30th Dec 2026',
                           }),
                           (0, n.jsx)('span', { style: { color: b }, children: '•' }),
                           (0, n.jsx)('span', {
                             style: {
-                              fontFamily: j,
+                              fontFamily: fontDate,
                               fontWeight: 600,
                               fontSize: w(4.4),
                               color: u,
+                              fontVariantNumeric: 'lining-nums',
                             },
                             children: 'From 9:30 PM Onwards',
                           }),
@@ -2492,6 +2475,7 @@ export default function () {
                         color: y,
                         delay: 1.4,
                         weight: 600,
+                        style: { fontFamily: fontDate },
                         children: 'VENUE',
                       }),
                       (0, n.jsx)(H, {
@@ -2500,19 +2484,20 @@ export default function () {
                         delay: 1.5,
                         color: u,
                         weight: 600,
-                        style: { marginTop: w(0.4) },
+                        style: { fontFamily: fontDate, marginTop: w(0.3) },
                       }),
                       (0, n.jsx)('p', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 500,
                           fontSize: w(4.4),
                           color: u,
-                          margin: `${w(0.4)} 0 0`,
+                          margin: `${w(0.3)} 0 0`,
                           whiteSpace: 'nowrap',
                           letterSpacing: '.03em',
+                          fontVariantNumeric: 'lining-nums',
                         },
-                        children: 'Press Bazar, Ulhasnagar 421003',
+                        children: 'Press Bazar, Ulhasnagar – 421003',
                       }),
                       (0, n.jsxs)('div', {
                         style: {
@@ -2522,7 +2507,7 @@ export default function () {
                           alignItems: 'center',
                           gap: w(1.8),
                           flexWrap: 'wrap',
-                          marginTop: w(2),
+                          marginTop: w(1.6),
                         },
                         children: [
                           (0, n.jsxs)('a', {
@@ -2532,6 +2517,7 @@ export default function () {
                             className: 'aa-pill aa-r',
                             style: {
                               ...$(1.7),
+                              fontFamily: fontDate,
                               fontSize: w(2.5),
                               letterSpacing: '.16em',
                               padding: `${w(1.6)} ${w(3.2)}`,
@@ -2549,7 +2535,7 @@ export default function () {
                               bg: 'rgba(250,244,235,.85)',
                               label: 'Add to Calendar',
                               style: {
-                                fontFamily: j,
+                                fontFamily: fontDate,
                                 fontWeight: 600,
                                 fontSize: w(2.5),
                                 letterSpacing: '.14em',
@@ -2717,20 +2703,27 @@ export default function () {
                       }),
                       (0, n.jsx)('div', {
                         style: {
-                          fontFamily: j,
+                          fontFamily: fontDate,
                           fontWeight: 700,
                           fontSize: w(6.2),
                           letterSpacing: '.18em',
                           color: '#8b1e2a',
                           textTransform: 'uppercase',
                           lineHeight: 1.2,
+                          fontVariantNumeric: 'lining-nums',
                         },
                         children: '30 · 12 · 2026',
                       }),
                       (0, n.jsx)(O, {
                         size: 3.8,
                         color: y,
-                        style: { fontStyle: 'italic', margin: 0 },
+                        style: {
+                          fontStyle: 'italic',
+                          margin: 0,
+                          fontFamily: fontDate,
+                          fontVariantNumeric: 'lining-nums',
+                          fontWeight: 500,
+                        },
                         children: 'Wednesday, 30th December 2026',
                       }),
                     ],
