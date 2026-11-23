@@ -2617,21 +2617,36 @@ export default function () {
                 bottom: 8,
                 wash: !0,
                 children: [
+                  (0, n.jsx)(B, {
+                    size: 4.2,
+                    track: 0.3,
+                    color: '#8b1e2a',
+                    delay: 0.2,
+                    weight: 700,
+                    style: {
+                      fontFamily: fontDate,
+                      letterSpacing: '.28em',
+                      paddingLeft: '.28em',
+                      textShadow: '0 1px 8px rgba(139,30,42,0.18)',
+                    },
+                    children: '#THERRWEDDING',
+                  }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.35, gap: 1.8 }),
                   (0, n.jsxs)(O, {
-                    size: 4.8,
-                    delay: 0.3,
+                    size: 4.6,
+                    delay: 0.5,
                     color: u,
-                    style: { maxWidth: w(74), lineHeight: 1.6 },
+                    style: { maxWidth: w(74), lineHeight: 1.6, marginTop: w(1.0) },
                     children: [
                       'We look forward to celebrating',
                       (0, n.jsx)('br', {}),
                       'our special day with you.',
                     ],
                   }),
-                  (0, n.jsx)(G, { w: 14, delay: 0.5, gap: 2.0 }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.7, gap: 2.0 }),
                   (0, n.jsx)(X, {
                     size: 16,
-                    delay: 0.7,
+                    delay: 0.9,
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(1.8)} 0 ${w(1.4)}`,
@@ -2642,7 +2657,7 @@ export default function () {
                   (0, n.jsxs)('div', {
                     className: 'aa-r',
                     style: {
-                      ...$(1.0),
+                      ...$(1.1),
                       marginTop: w(2.4),
                       display: 'flex',
                       flexDirection: 'column',
@@ -2684,21 +2699,6 @@ export default function () {
                         children: 'Wednesday, 30th December 2026',
                       }),
                     ],
-                  }),
-                  (0, n.jsx)(B, {
-                    size: 4.2,
-                    track: 0.3,
-                    color: '#8b1e2a',
-                    delay: 1.3,
-                    weight: 700,
-                    style: {
-                      fontFamily: fontDate,
-                      marginTop: w(3.2),
-                      letterSpacing: '.28em',
-                      paddingLeft: '.28em',
-                      textShadow: '0 1px 8px rgba(139,30,42,0.18)',
-                    },
-                    children: '#THERRWEDDING',
                   }),
                 ],
               }),
