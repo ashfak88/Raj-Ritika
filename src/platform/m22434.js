@@ -51,7 +51,7 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
     uid: `${d}-reception@zetron.tech`,
   },
   g = gReception,
-  WO = 'undefined' != typeof window && window.location.pathname.toLowerCase().startsWith('/sangeet'),
+  WO = !('undefined' != typeof window && window.location.pathname.toLowerCase().startsWith('/sangeet')),
   u = '#4a3a2e',
   y = '#6b5646',
   x = '#7d5f2e',
@@ -1370,7 +1370,7 @@ function as({ onReveal: a, time: tm = '09:30 PM' }) {
               letterSpacing: '.14em',
               paddingLeft: '.14em',
               color: u,
-              margin: `${w(0.4)} 0 0`,
+              margin: `${w(2.6)} 0 0`,
               fontVariantNumeric: 'lining-nums',
             },
             children: mix(tm),
@@ -2056,7 +2056,7 @@ export default function () {
           let cer = document.getElementById('aa-ceremony'),
             rc = cer ? cer.getBoundingClientRect() : null,
             slow = rc && rc.top < window.innerHeight * 0.5 && rc.bottom > window.innerHeight * 0.5,
-            speed = slow ? 22 : 40
+            speed = slow ? 30 : 52
           pos = Math.min(max, pos + (speed * dt) / 1000)
           sc.scrollTo({ top: pos, behavior: 'instant' })
         }
