@@ -167,6 +167,7 @@ let N = (a) => Math.round(100 * a) / 100,
 }
 .aa-root{background:${v};color:${u};overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 .aa-page{position:relative;height:100vh;height:100svh;overflow:hidden;background:${v}}
+#aa-rsvp{height:80vh;height:80svh}
 .aa-bg{display:none;position:absolute;inset:-60px;background-image:var(--bg);background-size:cover;background-position:center;filter:blur(26px) saturate(1.05);opacity:.9}
 .aa-art{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100vw,calc(100vh*0.5628));height:max(100vh,calc(100vw/0.5628))}
 @supports (height:1svh){.aa-art{width:max(100vw,calc(100svh*0.5628));height:max(100svh,calc(100vw/0.5628))}}
@@ -2749,8 +2750,8 @@ export default function () {
               art: p.floral,
               label: 'Blessings & Love',
               children: (0, n.jsxs)(J, {
-                top: 7,
-                bottom: 8,
+                top: 3,
+                bottom: 14,
                 wash: !0,
                 children: [
                   (0, n.jsx)(B, { size: 3.2, track: 0.5, color: x, delay: 0.2, children: 'Blessings & Love' }),
@@ -2990,23 +2991,6 @@ export default function () {
                   (0, n.jsx)(ad, {}),
                 ],
               }),
-            }),
-          ],
-        }),
-        !('undefined' != typeof location && location.hostname.endsWith('.vercel.app')) &&
-        (0, n.jsxs)('footer', {
-          className: 'aa-foot',
-          children: [
-            (0, n.jsxs)('p', {
-              style: {
-                fontFamily: j,
-                fontSize: 11,
-                letterSpacing: '.28em',
-                textTransform: 'uppercase',
-                color: x,
-                margin: 0,
-              },
-              children: [(0, n.jsx)(Credit, {})],
             }),
           ],
         }),
