@@ -1034,7 +1034,7 @@ function ai({ onBegin: a, onDone: e }) {
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
                           style: { ...$(0.8), ...d(3.2, 0.44, u) },
-                          children: 'Wedding & Reception',
+                          children: 'Sangeet & Reception',
                         }),
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
