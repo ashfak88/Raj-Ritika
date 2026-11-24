@@ -2250,6 +2250,7 @@ export default function () {
                 bottom: 4.5,
                 wash: !0,
                 children: [
+                  (0, n.jsx)(O, { size: 3.3, delay: 0.05, color: y, style: { margin: `0 0 ${w(0.6)}` }, children: 'We cordially invite you to' }),
                   (0, n.jsx)(B, { size: 3.6, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'Join Us for the Sangeet' }),
                   (0, n.jsx)(G, { w: 14, delay: 0.3, gap: 1.8 }),
                   (0, n.jsx)(H, {
@@ -2427,7 +2428,7 @@ export default function () {
                   (0, n.jsx)(as, { onReveal: () => i(!0) }),
                   (0, n.jsxs)('div', {
                     style: {
-                      marginTop: w(-1.2),
+                      marginTop: w(1.0),
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -2664,10 +2665,13 @@ export default function () {
                   }),
                   (0, n.jsx)(G, { w: 14, delay: 0.7, gap: 2.0 }),
                   (0, n.jsx)(X, {
-                    size: 16,
+                    size: 13,
                     delay: 0.9,
                     color: '#8b1e2a',
                     style: {
+                      fontFamily: "'Playball', cursive",
+                      fontStyle: 'normal',
+                      fontWeight: 400,
                       margin: `${w(1.8)} 0 ${w(1.4)}`,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
                     },
