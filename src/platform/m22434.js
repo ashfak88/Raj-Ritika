@@ -51,6 +51,7 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
     uid: `${d}-reception@zetron.tech`,
   },
   g = gReception,
+  WO = !('undefined' != typeof window && window.location.pathname.toLowerCase().startsWith('/sangeeth')),
   u = '#4a3a2e',
   y = '#6b5646',
   x = '#7d5f2e',
@@ -1052,7 +1053,7 @@ function ai({ onBegin: a, onDone: e }) {
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
                           style: { ...$(0.8), ...d(3.2, 0.44, u) },
-                          children: 'Sangeet & Wedding',
+                          children: WO ? 'Wedding & Reception' : 'Sangeet & Wedding',
                         }),
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
@@ -2259,6 +2260,7 @@ export default function () {
                 ],
               }),
             }),
+            !WO &&
             (0, n.jsx)(q, {
               id: 'aa-sangeet',
               art: p.floral,
@@ -2269,7 +2271,7 @@ export default function () {
                 wash: !0,
                 children: [
                   (0, n.jsx)(O, { size: 3.3, delay: 0.05, color: y, style: { margin: `0 0 ${w(0.6)}` }, children: 'We cordially invite you to' }),
-                  (0, n.jsx)(B, { size: 3.6, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'Join Us for the Sangeet' }),
+                  (0, n.jsx)(B, { size: 3.6, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'Join Us for the' }),
                   (0, n.jsx)(G, { w: 14, delay: 0.3, gap: 1.8 }),
                   (0, n.jsx)(H, {
                     text: 'SANGEET NIGHT',
@@ -2766,8 +2768,8 @@ export default function () {
               flip: 'y',
               label: 'With Divine Blessings',
               children: (0, n.jsxs)(J, {
-                top: 7,
-                bottom: 8,
+                top: 5,
+                bottom: 6,
                 wash: !0,
                 children: [
                   (0, n.jsx)(B, {
@@ -2789,7 +2791,7 @@ export default function () {
                     size: 4.6,
                     delay: 0.5,
                     color: u,
-                    style: { maxWidth: w(74), lineHeight: 1.6, marginTop: w(1.0) },
+                    style: { maxWidth: w(74), lineHeight: 1.6, marginTop: w(0.6) },
                     children: [
                       'We look forward to celebrating',
                       (0, n.jsx)('br', {}),
@@ -2805,7 +2807,7 @@ export default function () {
                       fontFamily: "'Playball', cursive",
                       fontStyle: 'normal',
                       fontWeight: 400,
-                      margin: `${w(1.8)} 0 ${w(1.4)}`,
+                      margin: `${w(1.0)} 0 ${w(0.4)}`,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
                     },
                     children: 'Ritika & Raj',
@@ -2814,11 +2816,11 @@ export default function () {
                     className: 'aa-r',
                     style: {
                       ...$(1.1),
-                      marginTop: w(2.4),
+                      marginTop: w(1.2),
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      gap: w(0.8),
+                      gap: w(0.9),
                     },
                     children: [
                       (0, n.jsx)(B, {
@@ -2842,36 +2844,28 @@ export default function () {
                         },
                         children: mix('30 · 12 · 2026'),
                       }),
-                      (0, n.jsx)(O, {
-                        size: 4.0,
-                        color: y,
+                      (0, n.jsx)('div', {
+                        className: 'aa-r',
                         style: {
-                          fontStyle: 'italic',
-                          margin: 0,
+                          ...$(1.3),
                           fontFamily: fontDate,
-                          fontVariantNumeric: 'lining-nums',
                           fontWeight: 500,
+                          fontSize: w(3.0),
+                          letterSpacing: '.12em',
+                          paddingLeft: '.12em',
+                          color: y,
+                          textTransform: 'uppercase',
+                          whiteSpace: 'nowrap',
+                          lineHeight: 1.4,
                         },
                         children: mix('Wednesday, 30th December 2026'),
                       }),
                     ],
                   }),
-                ],
-              }),
-            }),
-            (0, n.jsx)(q, {
-              id: 'aa-follow',
-              art: p.floral,
-              label: 'Follow Us',
-              children: (0, n.jsxs)(J, {
-                top: 7,
-                bottom: 8,
-                wash: !0,
-                children: [
-                  (0, n.jsx)(G, { w: 14, delay: 0.1, gap: 2.0 }),
+                  (0, n.jsx)(G, { w: 14, delay: 1.3, gap: 1.6 }),
                   (0, n.jsxs)('div', {
                     className: 'aa-r',
-                    style: { ...$(1.4), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: w(1.0), marginTop: w(0.4) },
+                    style: { ...$(1.4), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: w(1.0), marginTop: w(0.2) },
                     children: [
                       (0, n.jsx)(B, {
                         size: 2.9,
@@ -2919,7 +2913,6 @@ export default function () {
                       }),
                     ],
                   }),
-                  (0, n.jsx)(G, { w: 14, delay: 1.6, gap: 2.0 }),
                 ],
               }),
             }),
