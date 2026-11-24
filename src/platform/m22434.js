@@ -2005,20 +2005,68 @@ export default function () {
     }, [a]),
     (0, s.useEffect)(() => {
       if (!a) return
-      let e = !1,
-        t = () => {
-          e = !0
+      let touching = !1,
+        resumeAt = 0,
+        raf = 0,
+        pos = 0,
+        last = 0,
+        timer = 0,
+        HOLD = 2200,
+        down = () => {
+          ;((touching = !0), (resumeAt = performance.now() + HOLD))
         },
-        i = ['wheel', 'touchstart', 'keydown', 'pointerdown']
-      i.forEach((a) => window.addEventListener(a, t, { passive: !0, capture: !0 }))
-      let r = window.setTimeout(() => {
-        let a = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY
-        !e &&
-          a < 40 &&
-          document.getElementById('aa-couple')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 8500)
+        up = () => {
+          ;((touching = !1), (resumeAt = performance.now() + HOLD))
+        },
+        poke = () => {
+          resumeAt = performance.now() + HOLD
+        },
+        evs = [
+          ['touchstart', down],
+          ['pointerdown', down],
+          ['touchend', up],
+          ['touchcancel', up],
+          ['pointerup', up],
+          ['pointercancel', up],
+          ['wheel', poke],
+          ['keydown', poke],
+        ]
+      evs.forEach(([n2, f]) => window.addEventListener(n2, f, { passive: !0, capture: !0 }))
+      let de = document.documentElement,
+        bd = document.body,
+        sc = null,
+        tick = (now) => {
+          raf = requestAnimationFrame(tick)
+          if (!sc) return
+          let ae = document.activeElement,
+            typing = ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName),
+            cur = sc.scrollTop || 0
+          if (touching || typing || now < resumeAt) {
+            ;((pos = cur), (last = now))
+            return
+          }
+          if (Math.abs(cur - pos) > 2) {
+            ;((pos = cur), (last = now), (resumeAt = now + 1500))
+            return
+          }
+          let max = sc.scrollHeight - sc.clientHeight,
+            dt = Math.min(now - last, 64)
+          last = now
+          if (pos >= max - 1) return
+          let cer = document.getElementById('aa-ceremony'),
+            rc = cer ? cer.getBoundingClientRect() : null,
+            slow = rc && rc.top < window.innerHeight * 0.5 && rc.bottom > window.innerHeight * 0.5,
+            speed = slow ? 22 : 40
+          pos = Math.min(max, pos + (speed * dt) / 1000)
+          sc.scrollTo({ top: pos, behavior: 'instant' })
+        }
+      timer = window.setTimeout(() => {
+        sc = bd.scrollHeight - bd.clientHeight > 8 ? bd : de.scrollHeight - de.clientHeight > 8 ? de : document.scrollingElement || de
+        ;((pos = sc.scrollTop || 0), (last = performance.now()))
+      }, 5000)
+      raf = requestAnimationFrame(tick)
       return () => {
-        ;(clearTimeout(r), i.forEach((a) => window.removeEventListener(a, t, { capture: !0 })))
+        ;(clearTimeout(timer), cancelAnimationFrame(raf), evs.forEach(([n2, f]) => window.removeEventListener(n2, f, { capture: !0 })))
       }
     }, [a]))
   let r = (0, s.useCallback)(() => {
