@@ -48,9 +48,18 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   x = '#7d5f2e',
   b = '#a07c45',
   v = '#efe4d6',
-  j = "'Inter', sans-serif",
+  j = "'Cormorant Garamond', Georgia, serif",
   k = "'Alex Brush', cursive",
-  fontDate = "'Playfair Display', 'Cinzel', Georgia, serif",
+  fontDate = "'Cinzel', 'Cormorant Garamond', Georgia, serif",
+  fontNum = "'Playfair Display', Georgia, serif",
+  mix = (str) =>
+    String(str)
+      .split(/([0-9][0-9:]*)/)
+      .map((part, i) =>
+        i % 2
+          ? (0, n.jsx)('span', { style: { fontFamily: fontNum, fontVariantNumeric: 'lining-nums', letterSpacing: '.02em' }, children: part }, i)
+          : part,
+      ),
   w = (a) => `calc(var(--u) * ${a})`,
   $ = (a) => ({ '--d': `${a}s` })
 function z(a) {
@@ -130,14 +139,14 @@ let N = (a) => Math.round(100 * a) / 100,
       tone: e % I.length,
     }))),
   L = `
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Inter:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Inter:ital,wght@0,300..700;1,300..700&family=Playball&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 .aa-root,.aa-cover{--u:min(1.06vw,.49vh)}
 @supports (height:1svh){.aa-root,.aa-cover{--u:min(1.06vw,.49svh)}}
 @media (max-width:480px){
   .aa-root,.aa-cover{--u:min(1.15vw,.52vh)}
   @supports (height:1svh){.aa-root,.aa-cover{--u:min(1.15vw,.52svh)}}
 }
-.aa-root{background:${v};color:${u};overflow-x:hidden;-webkit-tap-highlight-color:transparent;font-family:'Inter',sans-serif}
+.aa-root{background:${v};color:${u};overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 .aa-page{position:relative;height:100vh;height:100svh;overflow:hidden;background:${v}}
 .aa-bg{display:none;position:absolute;inset:-60px;background-image:var(--bg);background-size:cover;background-position:center;filter:blur(26px) saturate(1.05);opacity:.9}
 .aa-art{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100vw,calc(100vh*0.5628));height:max(100vh,calc(100vw/0.5628))}
@@ -220,6 +229,10 @@ let N = (a) => Math.round(100 * a) / 100,
 .aa-face-back{transform:rotateX(180deg);background:linear-gradient(0deg,#e9dac6,#d8c4a8)}
 .aa-lid-copy{position:absolute;left:50%;top:16.6%;transform:translateX(-50%);width:70%;text-align:center;transition:opacity .3s ease}
 .aa-break .aa-lid-copy{opacity:0}
+.aa-sketch{position:absolute;left:50%;top:14%;transition:opacity .9s ease;transform:translateX(-50%);z-index:3;pointer-events:none;isolation:isolate;background:#fff;mix-blend-mode:multiply;opacity:1;-webkit-mask:var(--g) center/contain no-repeat;mask:var(--g) center/contain no-repeat}
+.aa-zoom .aa-sketch{opacity:0}
+.aa-sketch img{display:block;width:100%;height:auto;position:static!important;border-radius:0!important;box-shadow:none!important;filter:grayscale(1) contrast(1.15)}
+.aa-sketch img+img{position:absolute!important;inset:0;filter:grayscale(1) invert(1) blur(1.6px);mix-blend-mode:color-dodge}
 .aa-pocket-copy{position:absolute;left:50%;top:54.4%;transform:translateX(-50%);width:62%;z-index:4;text-align:center;pointer-events:none}
 .aa-tap{transition:opacity .3s ease}
 .aa-break .aa-tap{opacity:0}
@@ -468,7 +481,7 @@ function O({ children: a, size: e = 4.3, delay: t = 0, color: i = y, style: r })
     style: {
       ...$(t),
       fontFamily: j,
-      fontStyle: 'normal',
+      fontStyle: 'italic',
       fontWeight: 400,
       fontSize: w(e),
       color: i,
@@ -920,7 +933,17 @@ function ai({ onBegin: a, onDone: e }) {
             (0, n.jsx)('div', {
               className: 'aa-card',
               'aria-hidden': !0,
-              children: (0, n.jsx)('img', { src: p.cross, alt: '', draggable: !1 }),
+              children: [
+                (0, n.jsx)('img', { src: p.cross, alt: '', draggable: !1 }),
+                (0, n.jsxs)('div', {
+                  className: 'aa-sketch',
+                  style: { width: w(26), '--g': `url('${p.ganapatiColor}')` },
+                  children: [
+                    (0, n.jsx)('img', { src: p.ganapatiColor, alt: '', draggable: !1 }),
+                    (0, n.jsx)('img', { src: p.ganapatiColor, alt: '', draggable: !1 }),
+                  ],
+                }),
+              ],
             }),
             (0, n.jsx)('div', {
               className: 'aa-pocket',
@@ -972,7 +995,7 @@ function ai({ onBegin: a, onDone: e }) {
                     fontVariantNumeric: 'lining-nums',
                     fontWeight: 600,
                   },
-                  children: 'December 2026',
+                  children: mix('December 2026'),
                 }),
                 (0, n.jsx)('div', {
                   className: 'aa-tap',
@@ -1331,7 +1354,7 @@ function as({ onReveal: a }) {
               margin: `${w(0.4)} 0 0`,
               fontVariantNumeric: 'lining-nums',
             },
-            children: '09:30 PM',
+            children: mix('09:30 PM'),
           }),
         ],
       }),
@@ -2111,6 +2134,9 @@ export default function () {
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(0.3)} 0 ${w(0.1)}`,
+                      fontFamily: "'Playball', cursive",
+                      fontStyle: 'normal',
+                      fontWeight: 400,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
                     },
                     children: 'Ritika',
@@ -2132,6 +2158,9 @@ export default function () {
                     color: '#8b1e2a',
                     style: {
                       margin: `${w(0.1)} 0 ${w(0.1)}`,
+                      fontFamily: "'Playball', cursive",
+                      fontStyle: 'normal',
+                      fontWeight: 400,
                       textShadow: '0 2px 14px rgba(139,30,42,0.22)',
                     },
                     children: 'Raj',
@@ -2190,13 +2219,13 @@ export default function () {
                       }),
                     }),
                   }),
-                  (0, n.jsx)(X, { size: 16, delay: 0.7, color: '#8b1e2a', style: { margin: `${w(0.5)} 0 ${w(0.2)}` }, children: 'Ritika & Raj' }),
+                  (0, n.jsx)(X, { size: 12.5, delay: 0.7, color: '#8b1e2a', style: { margin: `${w(0.5)} 0 ${w(-1.6)}`, fontFamily: "'Playball', cursive", fontStyle: 'normal', fontWeight: 400 }, children: 'Ritika & Raj' }),
                   (0, n.jsx)(G, { w: 12, delay: 0.9, gap: 1.4 }),
                   (0, n.jsx)(O, {
-                    size: 4.4,
+                    size: 3.9,
                     delay: 1.1,
                     color: x,
-                    style: { fontStyle: 'italic', maxWidth: w(74), lineHeight: 1.4, margin: `${w(0.2)} 0 0` },
+                    style: { fontStyle: 'italic', whiteSpace: 'nowrap', lineHeight: 1.4, margin: `${w(0.2)} 0 0` },
                     children: '“Two hearts, one soul, together forever.”',
                   }),
                   (0, n.jsx)(B, {
@@ -2235,57 +2264,35 @@ export default function () {
                     className: 'aa-r',
                     style: {
                       ...$(0.9),
-                      width: 'min(90vw, calc(var(--u) * 78))',
-                      margin: `${w(1.2)} auto`,
-                      padding: `${w(1.8)} ${w(3.0)}`,
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(250,242,228,0.94) 100%)',
-                      border: '1.5px solid rgba(176,141,87,0.7)',
-                      borderRadius: w(3),
-                      boxShadow: '0 8px 24px rgba(120,90,50,0.14), inset 0 0 16px rgba(247,230,184,0.4)',
+                      width: '100%',
+                      margin: `${w(1.4)} auto ${w(0.6)}`,
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      gap: w(0.8),
+                      gap: w(0.3),
                     },
                     children: [
-                      (0, n.jsx)(B, {
-                        size: 3.0,
-                        track: 0.3,
-                        color: x,
-                        weight: 600,
-                        style: { fontFamily: fontDate },
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3), color: x, letterSpacing: '.3em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.3em' },
                         children: 'DATE & TIME',
                       }),
+                      (0, n.jsx)('div', { style: { width: w(14), height: '1px', background: `linear-gradient(90deg, transparent, ${b}, transparent)`, margin: `${w(0.5)} 0` } }),
                       (0, n.jsx)('div', {
-                        style: {
-                          fontFamily: fontDate,
-                          fontWeight: 700,
-                          fontSize: w(5.6),
-                          color: '#8b1e2a',
-                          letterSpacing: '.06em',
-                          textTransform: 'uppercase',
-                          lineHeight: 1.2,
-                          fontVariantNumeric: 'lining-nums',
-                        },
-                        children: 'Monday, 28th Dec 2026',
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3.6), color: u, letterSpacing: '.34em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.34em' },
+                        children: 'Monday',
                       }),
                       (0, n.jsx)('div', {
-                        style: {
-                          width: w(12),
-                          height: '1px',
-                          background: `linear-gradient(90deg, transparent, ${b}, transparent)`,
-                        },
+                        style: { fontFamily: fontNum, fontWeight: 700, fontSize: w(14), color: '#8b1e2a', lineHeight: 1.05, fontVariantNumeric: 'lining-nums', textShadow: '0 2px 12px rgba(139,30,42,0.18)' },
+                        children: '28',
                       }),
                       (0, n.jsx)('div', {
-                        style: {
-                          fontFamily: fontDate,
-                          fontWeight: 600,
-                          fontSize: w(4.4),
-                          color: u,
-                          letterSpacing: '.08em',
-                          fontVariantNumeric: 'lining-nums',
-                        },
-                        children: 'From 8:00 PM Onwards',
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(4.2), color: '#8b1e2a', letterSpacing: '.26em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.26em' },
+                        children: mix('December 2026'),
+                      }),
+                      (0, n.jsx)('div', { style: { width: w(14), height: '1px', background: `linear-gradient(90deg, transparent, ${b}, transparent)`, margin: `${w(0.5)} 0` } }),
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3.8), color: u, letterSpacing: '.14em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.14em', textTransform: 'none' },
+                        children: mix('From 8:00 PM Onwards'),
                       }),
                     ],
                   }),
@@ -2328,7 +2335,7 @@ export default function () {
                           textAlign: 'center',
                           fontVariantNumeric: 'lining-nums',
                         },
-                        children: '1st Floor, Town Hall',
+                        children: mix('1st Floor, Town Hall'),
                       }),
                       (0, n.jsx)('p', {
                         style: {
@@ -2342,7 +2349,7 @@ export default function () {
                           letterSpacing: '.04em',
                           fontVariantNumeric: 'lining-nums',
                         },
-                        children: 'Ulhasnagar - 421003',
+                        children: mix('Ulhasnagar - 421003'),
                       }),
                     ],
                   }),
@@ -2352,8 +2359,8 @@ export default function () {
                       flexDirection: 'row',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      gap: w(1.8),
-                      flexWrap: 'wrap',
+                      gap: w(1.6),
+                      flexWrap: 'nowrap',
                       marginTop: w(1.4),
                     },
                     children: [
@@ -2365,9 +2372,10 @@ export default function () {
                         style: {
                           ...$(1.8),
                           fontFamily: fontDate,
-                          fontSize: w(2.5),
-                          letterSpacing: '.16em',
-                          padding: `${w(1.6)} ${w(3.2)}`,
+                          fontSize: w(2.3),
+                          letterSpacing: '.1em',
+                          whiteSpace: 'nowrap',
+                          padding: `${w(1.6)} ${w(2.6)}`,
                         },
                         children: [(0, n.jsx)(V, { size: w(3) }), 'View on Map'],
                       }),
@@ -2384,9 +2392,10 @@ export default function () {
                           style: {
                             fontFamily: fontDate,
                             fontWeight: 600,
-                            fontSize: w(2.5),
-                            letterSpacing: '.14em',
-                            padding: `${w(1.6)} ${w(3.2)}`,
+                            fontSize: w(2.3),
+                            letterSpacing: '.1em',
+                            whiteSpace: 'nowrap',
+                            padding: `${w(1.6)} ${w(2.6)}`,
                           },
                         }),
                       }),
@@ -2417,8 +2426,7 @@ export default function () {
                   (0, n.jsx)(as, { onReveal: () => i(!0) }),
                   (0, n.jsxs)('div', {
                     style: {
-                      minHeight: w(14),
-                      marginTop: w(1.2),
+                      marginTop: w(-1.2),
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -2427,19 +2435,14 @@ export default function () {
                     children: [
                       t
                         ? (0, n.jsx)(al, {})
-                        : (0, n.jsx)(O, {
-                            size: 4.4,
-                            delay: 1.1,
-                            color: x,
-                            children: '✨ Scratch the gold to reveal our day ✨',
-                          }),
+                        : null,
                       (0, n.jsx)(B, {
                         size: 3.2,
                         track: 0.32,
                         color: y,
                         delay: 1.3,
                         weight: 600,
-                        style: { fontFamily: fontDate, marginTop: w(1.2) },
+                        style: { fontFamily: fontDate, marginTop: w(0.6) },
                         children: 'VENUE',
                       }),
                       (0, n.jsx)(H, {
@@ -2458,10 +2461,23 @@ export default function () {
                           color: u,
                           margin: `${w(0.3)} 0 0`,
                           whiteSpace: 'nowrap',
-                          letterSpacing: '.03em',
-                          fontVariantNumeric: 'lining-nums',
+                          textAlign: 'center',
+                          letterSpacing: '.04em',
                         },
-                        children: 'Press Bazar, Ulhasnagar – 421003',
+                        children: 'Press Bazar',
+                      }),
+                      (0, n.jsx)('p', {
+                        style: {
+                          fontFamily: fontDate,
+                          fontWeight: 600,
+                          fontSize: w(4.4),
+                          color: '#8b1e2a',
+                          margin: `${w(0.2)} 0 0`,
+                          whiteSpace: 'nowrap',
+                          textAlign: 'center',
+                          letterSpacing: '.04em',
+                        },
+                        children: mix('Ulhasnagar – 421003'),
                       }),
                       (0, n.jsxs)('div', {
                         style: {
@@ -2469,8 +2485,8 @@ export default function () {
                           flexDirection: 'row',
                           justifyContent: 'center',
                           alignItems: 'center',
-                          gap: w(1.8),
-                          flexWrap: 'wrap',
+                          gap: w(1.6),
+                          flexWrap: 'nowrap',
                           marginTop: w(1.6),
                         },
                         children: [
@@ -2482,9 +2498,10 @@ export default function () {
                             style: {
                               ...$(1.7),
                               fontFamily: fontDate,
-                              fontSize: w(2.5),
-                              letterSpacing: '.16em',
-                              padding: `${w(1.6)} ${w(3.2)}`,
+                              fontSize: w(2.3),
+                              letterSpacing: '.1em',
+                              whiteSpace: 'nowrap',
+                              padding: `${w(1.6)} ${w(2.6)}`,
                             },
                             children: [(0, n.jsx)(V, { size: w(3) }), 'View on Map'],
                           }),
@@ -2501,9 +2518,10 @@ export default function () {
                               style: {
                                 fontFamily: fontDate,
                                 fontWeight: 600,
-                                fontSize: w(2.5),
-                                letterSpacing: '.14em',
-                                padding: `${w(1.6)} ${w(3.2)}`,
+                                fontSize: w(2.3),
+                                letterSpacing: '.1em',
+                                whiteSpace: 'nowrap',
+                                padding: `${w(1.6)} ${w(2.6)}`,
                               },
                             }),
                           }),
@@ -2684,7 +2702,7 @@ export default function () {
                           lineHeight: 1.25,
                           fontVariantNumeric: 'lining-nums',
                         },
-                        children: '30 · 12 · 2026',
+                        children: mix('30 · 12 · 2026'),
                       }),
                       (0, n.jsx)(O, {
                         size: 4.0,
@@ -2696,7 +2714,58 @@ export default function () {
                           fontVariantNumeric: 'lining-nums',
                           fontWeight: 500,
                         },
-                        children: 'Wednesday, 30th December 2026',
+                        children: mix('Wednesday, 30th December 2026'),
+                      }),
+                    ],
+                  }),
+                  (0, n.jsx)(G, { w: 14, delay: 1.3, gap: 2.0 }),
+                  (0, n.jsxs)('div', {
+                    className: 'aa-r',
+                    style: { ...$(1.4), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: w(1.0), marginTop: w(0.4) },
+                    children: [
+                      (0, n.jsx)(B, {
+                        size: 2.9,
+                        track: 0.3,
+                        color: x,
+                        weight: 600,
+                        style: { fontFamily: fontDate, lineHeight: 1.7, paddingLeft: '.3em' },
+                        children: ['For Wedding Updates', (0, n.jsx)('br', {}), '& Celebrations'],
+                      }),
+                      (0, n.jsx)(O, { size: 4.0, color: u, style: { margin: 0 }, children: 'Follow us on Instagram' }),
+                      (0, n.jsxs)('a', {
+                        href: 'https://www.instagram.com/therrweddingg?evlk=ZG1ieXV4NHlrMjZv',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        className: 'aa-pill',
+                        style: {
+                          fontFamily: fontDate,
+                          fontWeight: 600,
+                          fontSize: w(3.0),
+                          letterSpacing: '.12em',
+                          textTransform: 'none',
+                          whiteSpace: 'nowrap',
+                          color: '#8b1e2a',
+                          padding: `${w(1.7)} ${w(4.2)}`,
+                        },
+                        children: [
+                          (0, n.jsxs)('svg', {
+                            width: w(3.6),
+                            height: w(3.6),
+                            viewBox: '0 0 24 24',
+                            fill: 'none',
+                            stroke: 'currentColor',
+                            strokeWidth: 1.8,
+                            strokeLinecap: 'round',
+                            strokeLinejoin: 'round',
+                            'aria-hidden': !0,
+                            children: [
+                              (0, n.jsx)('rect', { x: 3, y: 3, width: 18, height: 18, rx: 5 }),
+                              (0, n.jsx)('circle', { cx: 12, cy: 12, r: 4 }),
+                              (0, n.jsx)('circle', { cx: 17.3, cy: 6.7, r: 0.6, fill: 'currentColor' }),
+                            ],
+                          }),
+                          '@therrweddingg',
+                        ],
                       }),
                     ],
                   }),
