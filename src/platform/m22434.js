@@ -2949,6 +2949,7 @@ export default function () {
             }),
           ],
         }),
+        !('undefined' != typeof location && location.hostname.endsWith('.vercel.app')) &&
         (0, n.jsxs)('footer', {
           className: 'aa-foot',
           children: [
