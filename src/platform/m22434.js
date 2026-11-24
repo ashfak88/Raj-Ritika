@@ -34,6 +34,14 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
     details: 'Sangeet Night celebration for Ritika & Raj.',
     uid: `${d}-sangeet@zetron.tech`,
   },
+  gCeremony = {
+    title: 'Wedding Ceremony & Pheras — Ritika & Raj',
+    start: new Date('2026-12-30T13:00:00+05:30'),
+    end: new Date('2026-12-30T16:00:00+05:30'),
+    location: 'Utsav Lawns, Press Bazar, Ulhasnagar - 421003',
+    details: 'Wedding Ceremony & Pheras (followed by lunch) for Ritika & Raj.',
+    uid: `${d}-ceremony@zetron.tech`,
+  },
   gReception = {
     title: 'Reception Cum Dinner — Ritika & Raj',
     start: new Date('2026-12-30T21:30:00+05:30'),
@@ -54,12 +62,22 @@ let d = '9c3fad15-3a8c-4eba-bb4e-ec65d5cf5306',
   fontNum = "'Playfair Display', Georgia, serif",
   mix = (str) =>
     String(str)
-      .split(/([0-9][0-9:]*)/)
-      .map((part, i) =>
-        i % 2
-          ? (0, n.jsx)('span', { style: { fontFamily: fontNum, fontVariantNumeric: 'lining-nums', letterSpacing: '.02em' }, children: part }, i)
-          : part,
-      ),
+      .split(/([0-9][0-9:]*(?:st|nd|rd|th)?)/)
+      .map((part, i) => {
+        if (i % 2 === 0) return part
+        let m = part.match(/^([0-9][0-9:]*)(st|nd|rd|th)?$/)
+        return (0, n.jsxs)(
+          'span',
+          {
+            style: { fontFamily: fontNum, fontVariantNumeric: 'lining-nums', letterSpacing: '.02em' },
+            children: [
+              m[1],
+              m[2] && (0, n.jsx)('sup', { style: { fontSize: '.58em', lineHeight: 0, verticalAlign: '.62em', letterSpacing: 0, marginLeft: '.04em', textTransform: 'none' }, children: m[2] }),
+            ],
+          },
+          i,
+        )
+      }),
   w = (a) => `calc(var(--u) * ${a})`,
   $ = (a) => ({ '--d': `${a}s` })
 function z(a) {
@@ -1034,7 +1052,7 @@ function ai({ onBegin: a, onDone: e }) {
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
                           style: { ...$(0.8), ...d(3.2, 0.44, u) },
-                          children: 'Sangeet & Reception',
+                          children: 'Sangeet & Wedding',
                         }),
                         (0, n.jsx)('p', {
                           className: 'aa-cin',
@@ -1125,7 +1143,7 @@ function an(a, e, t) {
   for (let a = 0; a < t; a += 8) for (let t = 0; t < e; t += 8) i[(a * e + t) * 4 + 3] > 60 && r++
   return r
 }
-function as({ onReveal: a }) {
+function as({ onReveal: a, time: tm = '09:30 PM' }) {
   let e = (0, s.useRef)(null),
     t = (0, s.useRef)(null),
     [i, r] = (0, s.useState)(!1),
@@ -1317,7 +1335,7 @@ function as({ onReveal: a }) {
     role: 'button',
     tabIndex: 0,
     'aria-label': o
-      ? 'Wednesday, 30 December 2026 at 09:30 PM'
+      ? `Wednesday, 30 December 2026 at ${tm}`
       : 'Scratch the gold to reveal the date — or press Enter',
     onKeyDown: (a) => {
       o || ('Enter' !== a.key && ' ' !== a.key) || (a.preventDefault(), m())
@@ -1354,7 +1372,7 @@ function as({ onReveal: a }) {
               margin: `${w(0.4)} 0 0`,
               fontVariantNumeric: 'lining-nums',
             },
-            children: mix('09:30 PM'),
+            children: mix(tm),
           }),
         ],
       }),
@@ -2407,6 +2425,127 @@ export default function () {
               }),
             }),
             (0, n.jsx)(q, {
+              id: 'aa-ceremony',
+              art: p.floral,
+              flip: 'x',
+              label: 'Wedding Ceremony & Pheras',
+              children: (0, n.jsxs)(J, {
+                top: 3.5,
+                bottom: 4.5,
+                wash: !0,
+                children: [
+                  (0, n.jsx)(B, { size: 3.4, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'The Wedding Celebration' }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.3, gap: 1.8 }),
+                  (0, n.jsx)(H, { text: 'WEDDING CEREMONY', size: 5.6, track: 0.1, delay: 0.5, color: '#8b1e2a', weight: 600 }),
+                  (0, n.jsx)(H, { text: '& PHERAS', size: 5.6, track: 0.1, delay: 0.7, color: '#8b1e2a', weight: 600, style: { marginTop: w(0.2) } }),
+                  (0, n.jsx)(as, { time: '01:00 PM' }),
+                  (0, n.jsx)(O, { size: 3.8, delay: 1.0, color: y, style: { margin: `${w(0.8)} 0 0` }, children: '(Followed by Lunch)' }),
+                  (0, n.jsxs)('div', {
+                    style: {
+                      marginTop: w(0.4),
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      width: '100%',
+                    },
+                    children: [
+                      (0, n.jsx)(B, {
+                        size: 3.2,
+                        track: 0.32,
+                        color: y,
+                        delay: 1.3,
+                        weight: 600,
+                        style: { fontFamily: fontDate, marginTop: w(0.6) },
+                        children: 'VENUE',
+                      }),
+                      (0, n.jsx)(H, {
+                        text: 'Utsav Lawns',
+                        size: 6.2,
+                        delay: 1.45,
+                        color: u,
+                        weight: 600,
+                        style: { fontFamily: fontDate, marginTop: w(0.3) },
+                      }),
+                      (0, n.jsx)('p', {
+                        style: {
+                          fontFamily: fontDate,
+                          fontWeight: 500,
+                          fontSize: w(4.4),
+                          color: u,
+                          margin: `${w(0.3)} 0 0`,
+                          whiteSpace: 'nowrap',
+                          textAlign: 'center',
+                          letterSpacing: '.04em',
+                        },
+                        children: 'Press Bazar',
+                      }),
+                      (0, n.jsx)('p', {
+                        style: {
+                          fontFamily: fontDate,
+                          fontWeight: 600,
+                          fontSize: w(4.4),
+                          color: '#8b1e2a',
+                          margin: `${w(0.2)} 0 0`,
+                          whiteSpace: 'nowrap',
+                          textAlign: 'center',
+                          letterSpacing: '.04em',
+                        },
+                        children: mix('Ulhasnagar – 421003'),
+                      }),
+                      (0, n.jsxs)('div', {
+                        style: {
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          gap: w(1.6),
+                          flexWrap: 'nowrap',
+                          marginTop: w(1.6),
+                        },
+                        children: [
+                          (0, n.jsxs)('a', {
+                            href: 'https://www.google.com/maps/search/?api=1&query=Utsav+Lawns+Press+Bazar+Ulhasnagar+421003',
+                            target: '_blank',
+                            rel: 'noopener noreferrer',
+                            className: 'aa-pill aa-r',
+                            style: {
+                              ...$(1.7),
+                              fontFamily: fontDate,
+                              fontSize: w(2.3),
+                              letterSpacing: '.1em',
+                              whiteSpace: 'nowrap',
+                              padding: `${w(1.6)} ${w(2.6)}`,
+                            },
+                            children: [(0, n.jsx)(V, { size: w(3) }), 'View on Map'],
+                          }),
+                          (0, n.jsx)('div', {
+                            className: 'aa-fadein',
+                            style: $(1.9),
+                            children: (0, n.jsx)(c.AddToCalendar, {
+                              event: gCeremony,
+                              fileName: 'wedding-ceremony-ritika-raj',
+                              accent: x,
+                              color: x,
+                              bg: 'rgba(250,244,235,.85)',
+                              label: 'Add to Calendar',
+                              style: {
+                                fontFamily: fontDate,
+                                fontWeight: 600,
+                                fontSize: w(2.3),
+                                letterSpacing: '.1em',
+                                whiteSpace: 'nowrap',
+                                padding: `${w(1.6)} ${w(2.6)}`,
+                              },
+                            }),
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+            (0, n.jsx)(q, {
               id: 'aa-date',
               art: p.foil,
               overlays: (0, n.jsx)(U, {}),
@@ -2414,9 +2553,8 @@ export default function () {
               children: (0, n.jsxs)(J, {
                 top: 3.5,
                 bottom: 4.5,
+                wash: !0,
                 children: [
-                  (0, n.jsx)(B, { size: 3.4, track: 0.36, color: x, delay: 0.1, weight: 600, children: 'The Wedding Celebration' }),
-                  (0, n.jsx)(G, { w: 14, delay: 0.3, gap: 1.8 }),
                   (0, n.jsx)(H, {
                     text: 'RECEPTION CUM DINNER',
                     size: 5.6,
@@ -2425,7 +2563,34 @@ export default function () {
                     color: '#8b1e2a',
                     weight: 600,
                   }),
-                  (0, n.jsx)(as, { onReveal: () => i(!0) }),
+                  (0, n.jsxs)('div', {
+                    className: 'aa-r',
+                    style: { ...$(0.9), width: '100%', margin: `${w(1.4)} auto ${w(0.6)}`, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: w(0.3) },
+                    children: [
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3), color: x, letterSpacing: '.3em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.3em' },
+                        children: 'DATE & TIME',
+                      }),
+                      (0, n.jsx)('div', { style: { width: w(14), height: '1px', background: `linear-gradient(90deg, transparent, ${b}, transparent)`, margin: `${w(0.5)} 0` } }),
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3.6), color: u, letterSpacing: '.34em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.34em' },
+                        children: 'Wednesday',
+                      }),
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontNum, fontWeight: 700, fontSize: w(14), color: '#8b1e2a', lineHeight: 1.05, fontVariantNumeric: 'lining-nums', textShadow: '0 2px 12px rgba(139,30,42,0.18)' },
+                        children: '30',
+                      }),
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(4.2), color: '#8b1e2a', letterSpacing: '.26em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.26em' },
+                        children: mix('December 2026'),
+                      }),
+                      (0, n.jsx)('div', { style: { width: w(14), height: '1px', background: `linear-gradient(90deg, transparent, ${b}, transparent)`, margin: `${w(0.5)} 0` } }),
+                      (0, n.jsx)('div', {
+                        style: { fontFamily: fontDate, fontWeight: 600, fontSize: w(3.8), color: u, letterSpacing: '.14em', textTransform: 'uppercase', whiteSpace: 'nowrap', lineHeight: 1.25, fontVariantNumeric: 'lining-nums', paddingLeft: '.14em', textTransform: 'none' },
+                        children: mix('From 9:30 PM Onwards'),
+                      }),
+                    ],
+                  }),
                   (0, n.jsxs)('div', {
                     style: {
                       marginTop: w(1.0),
@@ -2435,9 +2600,7 @@ export default function () {
                       width: '100%',
                     },
                     children: [
-                      t
-                        ? (0, n.jsx)(al, {})
-                        : null,
+                      (0, n.jsx)(al, {}),
                       (0, n.jsx)(B, {
                         size: 3.2,
                         track: 0.32,
@@ -2598,36 +2761,6 @@ export default function () {
               }),
             }),
             (0, n.jsx)(q, {
-              id: 'aa-rsvp',
-              art: p.floral,
-              flip: 'x',
-              label: 'RSVP',
-              children: (0, n.jsxs)(J, {
-                top: 15,
-                bottom: 12,
-                wash: !0,
-                start: !0,
-                children: [
-                  (0, n.jsx)(B, { size: 3.2, track: 0.5, delay: 0.1, children: 'Kindly' }),
-                  (0, n.jsx)(H, { text: 'RSVP', size: 12, weight: 300, track: 0.34, delay: 0.3, step: 0.1 }),
-                  (0, n.jsx)(G, { w: 14, delay: 0.9, gap: 2.4 }),
-                  (0, n.jsxs)(O, {
-                    size: 4.4,
-                    delay: 1.2,
-                    color: u,
-                    children: [
-                      'We’d be delighted to have you',
-                      (0, n.jsx)('br', {}),
-                      'with us on this special day.',
-                    ],
-                  }),
-                  (0, n.jsx)('div', { style: { height: w(4) } }),
-                  (0, n.jsx)(ad, {}),
-                ],
-              }),
-            }),
-            (0, n.jsx)(c.ScrollIndicatorMarker, {}),
-            (0, n.jsx)(q, {
               id: 'aa-closing',
               art: p.floral,
               flip: 'y',
@@ -2723,7 +2856,19 @@ export default function () {
                       }),
                     ],
                   }),
-                  (0, n.jsx)(G, { w: 14, delay: 1.3, gap: 2.0 }),
+                ],
+              }),
+            }),
+            (0, n.jsx)(q, {
+              id: 'aa-follow',
+              art: p.floral,
+              label: 'Follow Us',
+              children: (0, n.jsxs)(J, {
+                top: 7,
+                bottom: 8,
+                wash: !0,
+                children: [
+                  (0, n.jsx)(G, { w: 14, delay: 0.1, gap: 2.0 }),
                   (0, n.jsxs)('div', {
                     className: 'aa-r',
                     style: { ...$(1.4), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: w(1.0), marginTop: w(0.4) },
@@ -2774,6 +2919,37 @@ export default function () {
                       }),
                     ],
                   }),
+                  (0, n.jsx)(G, { w: 14, delay: 1.6, gap: 2.0 }),
+                ],
+              }),
+            }),
+            (0, n.jsx)(c.ScrollIndicatorMarker, {}),
+            (0, n.jsx)(q, {
+              id: 'aa-rsvp',
+              art: p.floral,
+              flip: 'x',
+              label: 'RSVP',
+              children: (0, n.jsxs)(J, {
+                top: 15,
+                bottom: 12,
+                wash: !0,
+                start: !0,
+                children: [
+                  (0, n.jsx)(B, { size: 3.2, track: 0.5, delay: 0.1, children: 'Kindly' }),
+                  (0, n.jsx)(H, { text: 'RSVP', size: 12, weight: 300, track: 0.34, delay: 0.3, step: 0.1 }),
+                  (0, n.jsx)(G, { w: 14, delay: 0.9, gap: 2.4 }),
+                  (0, n.jsxs)(O, {
+                    size: 4.4,
+                    delay: 1.2,
+                    color: u,
+                    children: [
+                      'We’d be delighted to have you',
+                      (0, n.jsx)('br', {}),
+                      'with us on this special day.',
+                    ],
+                  }),
+                  (0, n.jsx)('div', { style: { height: w(4) } }),
+                  (0, n.jsx)(ad, {}),
                 ],
               }),
             }),
