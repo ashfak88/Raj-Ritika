@@ -2053,11 +2053,7 @@ export default function () {
             dt = Math.min(now - last, 64)
           last = now
           if (pos >= max - 1) return
-          let cer = document.getElementById('aa-ceremony'),
-            rc = cer ? cer.getBoundingClientRect() : null,
-            slow = rc && rc.top < window.innerHeight * 0.5 && rc.bottom > window.innerHeight * 0.5,
-            speed = slow ? 30 : 52
-          pos = Math.min(max, pos + (speed * dt) / 1000)
+          pos = Math.min(max, pos + (52 * dt) / 1000)
           sc.scrollTo({ top: pos, behavior: 'instant' })
         }
       timer = window.setTimeout(() => {
@@ -2489,8 +2485,8 @@ export default function () {
                   (0, n.jsx)(G, { w: 14, delay: 0.3, gap: 1.8 }),
                   (0, n.jsx)(H, { text: 'WEDDING CEREMONY', size: 5.6, track: 0.1, delay: 0.5, color: '#8b1e2a', weight: 600 }),
                   (0, n.jsx)(H, { text: '& PHERAS', size: 5.6, track: 0.1, delay: 0.7, color: '#8b1e2a', weight: 600, style: { marginTop: w(0.2) } }),
-                  (0, n.jsx)(as, { time: '01:00 PM' }),
-                  (0, n.jsx)(O, { size: 3.8, delay: 1.0, color: y, style: { margin: `${w(0.8)} 0 0` }, children: '(Followed by Lunch)' }),
+                  (0, n.jsx)(as, { time: '01:00 PM', onReveal: () => i(!0) }),
+                  (0, n.jsx)(O, { size: 3.8, delay: 1.0, color: y, style: { margin: `${t ? w(-1.6) : w(0.8)} 0 0`, transition: 'margin .6s ease' }, children: '(Followed by Lunch)' }),
                   (0, n.jsxs)('div', {
                     style: {
                       marginTop: w(0.4),
