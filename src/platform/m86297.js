@@ -85,7 +85,10 @@ export default function ({ src: e, startTime: o = 0, endTime: i, eagerStart: c =
       function n() {
         t.currentTime >= i && (t.currentTime = o)
       }
-      ;(r || (t.loop = !0), r && t.addEventListener('timeupdate', n))
+      function z() {
+        ;((t.currentTime = o), t.play().catch(() => {}))
+      }
+      ;(r || o > 0 || (t.loop = !0), r && t.addEventListener('timeupdate', n), !r && o > 0 && t.addEventListener('ended', z))
       let s = !1
       function a() {
         ;(u(!0), h(!1))
@@ -144,6 +147,7 @@ export default function ({ src: e, startTime: o = 0, endTime: i, eagerStart: c =
           ;(document.removeEventListener('app:ready', p),
             window.removeEventListener('click', m),
             r && t.removeEventListener('timeupdate', n),
+            t.removeEventListener('ended', z),
             t.pause())
         }
       )

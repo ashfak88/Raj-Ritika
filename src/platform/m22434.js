@@ -2008,6 +2008,7 @@ export default function () {
     d = (0, s.useCallback)(() => e(!0), [])
   return (0, n.jsx)(o.default, {
     src: '/audio/aaj_sajeya.mp3',
+    startTime: 20,
     children: (0, n.jsxs)('div', {
       className: 'aa-root',
       children: [
